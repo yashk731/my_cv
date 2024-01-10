@@ -1,10 +1,10 @@
 html.dark-theme .switcher-wrapper {
-	 background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 }
 html.dark-theme body {
 	color: var(--bs-body-color);
     --bs-body-color: #e4e5e6;
-	background-color: #070d0e;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	
 }
 
@@ -23,12 +23,12 @@ html.dark-theme p {
     color: #91949f;
 }
 html.dark-theme .card {
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	box-shadow:0 0.1rem 0.7rem rgb(0 0 0 / 20%)
 }
 
 html.dark-theme .chat-list .list-group-item.active {
-    background-color: #3e4348;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 }
 
 html.dark-theme .chat-tab-menu .nav-pills .nav-link.active,
@@ -52,7 +52,7 @@ html.dark-theme .text-secondary {
 }
 
 html.dark-theme .topbar {
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(237 237 237 / 12%);
 	box-shadow: 0 0.1rem 0.7rem rgb(0 0 0 / 20%)
 }
