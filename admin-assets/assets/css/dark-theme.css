@@ -8,6 +8,10 @@ html.dark-theme body {
 	
 }
 
+html.dark-theme body hr {
+    border-top: 1px solid #fff !important;
+}
+
 html.dark-theme a {
 	color: #fff;
     text-decoration: none;
@@ -87,7 +91,7 @@ html.dark-theme .recent-product-img {
 	border: 1px solid rgb(255 255 255 / 10%)
 }
 html.dark-theme .page-footer {
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-top: 1px solid rgb(237 237 237 / 12%)
 }
 html.dark-theme .mobile-toggle-menu {
@@ -164,7 +168,7 @@ html.dark-theme::placeholder {
 
 html.dark-theme .dropdown-menu {
 	color: #e4e5e6;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	box-shadow: 0 .5rem 1rem rgb(0 0 0 / .3)
 }
 html.dark-theme .dropdown-item {
@@ -204,7 +208,7 @@ html.dark-theme .dropdown-large .msg-footer {
 }
 html.dark-theme .btn-white {
 	color: #e4e5e6;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-color: rgb(206 212 218 / 45%);
 	border-top: 1px solid #63686f;
 	border-left: 1px solid #63686f
@@ -233,7 +237,7 @@ html.dark-theme .alert {
 
 html.dark-theme .accordion-item {
 	color: #e4e5e6;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
     border: var(--bs-accordion-border-width) solid #3f3f3f;
 }
 
@@ -242,7 +246,7 @@ html.dark-theme .accordion-button::after {
 }
 
 html.dark-theme .accordion-button {
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 }
 
 html.dark-theme .accordion-button {
@@ -258,7 +262,7 @@ html.dark-theme .nav-tabs .nav-link {
 }
 html.dark-theme .nav-tabs .nav-item.show .nav-link, html.dark-theme .nav-tabs .nav-link.active {
 	color: #ffffff;
-    background-color: #12181a;
+        background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 }
 html.dark-theme .nav-tabs {
 	border-bottom: 1px solid rgb(255 255 255 / 14%)
@@ -319,12 +323,12 @@ html.dark-theme .border-3 {
 	border-width: 3px!important
 }
 html.dark-theme .topbar .navbar .dropdown-menu::after {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-top: 1px solid rgb(241 241 241 / 15%);;
 	border-left: 1px solid rgb(241 241 241 / 15%);
 }
 html.dark-theme .topbar .navbar .dropdown-large .dropdown-menu::after {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-top: 1px solid rgb(241 241 241 / 15%);;
 	border-left: 1px solid rgb(241 241 241 / 15%);
 }
@@ -347,12 +351,12 @@ html.dark-theme .highcharts-grid-line {
 	stroke: rgb(255 255 255 / 12%)
 }
 html.dark-theme .sidebar-wrapper {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-right: 1px solid rgb(255 255 255 / 12%);
 	box-shadow: 0 0.1rem 0.7rem rgb(0 0 0 / 20%) !important;
 }
 html.dark-theme .sidebar-wrapper .sidebar-header {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-right: 1px solid rgb(255 255 255 / 12%);
 	border-bottom: 1px solid rgb(255 255 255 / 12%)
 }
@@ -385,7 +389,7 @@ html.dark-theme .simplebar-scrollbar:before {
 	background: rgba(255, 255, 255, .4)
 }
 html.dark-theme .footer {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-top: 1px solid rgb(255 255 255 / 12%)
 }
 html.dark-theme .btn-light-warning {
@@ -405,15 +409,15 @@ html.dark-theme .modal-footer {
 }
 
 html.dark-theme .email-wrapper {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	box-shadow: 0 .1rem .7rem rgb(0 0 0 / 24%)
 }
 html.dark-theme .email-sidebar {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-right: 1px solid rgb(255 255 255 / .12)
 }
 html.dark-theme .email-sidebar-header {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(255 255 255 / .12);
 	border-right: 0 solid rgb(255 255 255 / 12%)
 }
@@ -422,7 +426,7 @@ html.dark-theme .email-navigation {
 }
 html.dark-theme .email-navigation a.list-group-item {
 	color: #e4e5e6;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(0 0 0 / 0%)
 }
 html.dark-theme .email-navigation a.list-group-item:hover {
@@ -430,14 +434,14 @@ html.dark-theme .email-navigation a.list-group-item:hover {
 }
 html.dark-theme .email-meeting a.list-group-item {
 	color: #e4e5e6;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(0 0 0 / 0%)
 }
 html.dark-theme .email-meeting a.list-group-item:hover {
 	background-color: rgb(0 123 255 / 15%)
 }
 html.dark-theme .list-group-item {
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	color: #fbfcfd;
 	border: 1px solid rgb(255 255 255 / 13%)
 }
@@ -463,14 +467,14 @@ html.dark-theme .border-top {
 	border-top: 1px solid rgb(255 255 255 / 13%)!important
 }
 html.dark-theme .email-header {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(255 255 255 / 13%)
 }
 html.dark-theme .email-content {
 	background: #12181a
 }
 html.dark-theme .email-list div.email-message {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(255 255 255 / 12%);
 	color: #e4e5e6
 }
@@ -499,20 +503,20 @@ html.dark-theme .invoice {
 }
 
 html.dark-theme .chat-wrapper {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	box-shadow: 0 .1rem .7rem rgb(0 0 0 / 22%)
 }
 html.dark-theme .chat-sidebar {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-right: 1px solid rgb(255 255 255 / 13%)
 }
 html.dark-theme .chat-sidebar-header {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(255 255 255 / 13%);
 	border-right: 0 solid rgb(255 255 255 / 13%)
 }
 html.dark-theme .chat-header {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-bottom: 1px solid rgb(255 255 255 / 13%)
 }
 html.dark-theme .chat-tab-menu li a.nav-link {
@@ -520,7 +524,7 @@ html.dark-theme .chat-tab-menu li a.nav-link {
 }
 
 html.dark-theme .product-img-2 {
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 14%);
 }
 	
@@ -533,7 +537,7 @@ html.dark-theme .chat-msg {
 }
 html.dark-theme .chat-top-header-menu a {
 	color: #c3c5c8;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 15%)
 }
 html.dark-theme .chat-content-leftside .chat-left-msg {
@@ -543,23 +547,23 @@ html.dark-theme .chat-content-rightside .chat-right-msg {
 	background-color: #41484e
 }
 html.dark-theme .chat-footer {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border-top: 1px solid rgb(255 255 255 / 13%)
 }
 html.dark-theme .chat-footer-menu a {
 	color: #c3c5c8;
-	background-color: #12181a;
+	    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 15%)
 }
 html.dark-theme .fm-menu .list-group a {
 	color: #c3c5c8
 }
 html.dark-theme .fm-icon-box {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	color: #fff
 }
 html.dark-theme .contacts-social a {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	color: #fff
 }
 html.dark-theme .invoice table td, html.dark-theme .invoice table th {
@@ -629,7 +633,7 @@ html.dark-theme .btn-outline-dark {
 }
 html.dark-theme .page-link {
 	color: #b2b6ba;
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / .12)
 }
 html.dark-theme .page-item.disabled .page-link {
@@ -642,7 +646,7 @@ html.dark-theme .progress {
 }
 html.dark-theme .chip {
 	color: rgb(198 200 203);
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 15%)
 }
 html.dark-theme .bg-light {
@@ -656,7 +660,7 @@ html.dark-theme ul.icons li i {
 	color: #fff
 }
 html.dark-theme .icon-box {
-	background: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	box-shadow: 0 1px 5px #161a1e
 }
 html.dark-theme .pByfF i {
@@ -669,7 +673,7 @@ html.dark-theme .pByfF i {
 
 html.dark-theme .select2-container--bootstrap-5 .select2-selection {
 	color: #c0c8d1;
-    background-color: #12181a;
+    background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 31%);
 }
 
@@ -696,12 +700,12 @@ html.dark-theme .select2-container--bootstrap-5 .select2-dropdown {
 
 html.dark-theme .form-control {
 	color: #c0c8d1;
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 34%)
 }
 html.dark-theme .form-select {
 	color: #c0c8d1;
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 34%)
 }
 html.dark-theme .form-control:focus {
@@ -718,7 +722,7 @@ html.dark-theme .form-control::placeholder {
 	opacity: .5!important
 }
 html.dark-theme .picker__input {
-	background-color: #12181a!important;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 34%)!important
 }
 html.dark-theme .select2-container--bootstrap4 .select2-selection {
@@ -726,7 +730,7 @@ html.dark-theme .select2-container--bootstrap4 .select2-selection {
 	border: 1px solid rgb(255 255 255 / .35)
 }
 html.dark-theme .select2-dropdown {
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 38%)
 }
 html.dark-theme .select2-search--dropdown .select2-search__field {
@@ -755,7 +759,7 @@ html.dark-theme .imageuploadify {
 	border: 2px dashed rgb(255 255 255 / .5)
 }
 html.dark-theme .bootstrap-tagsinput {
-	background-color: #12181a;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 	border: 1px solid rgb(255 255 255 / 35%);
 	box-shadow: inset 0 1px 1px rgb(0 0 0 / 37%);
 	color: #e5e0e0
@@ -769,7 +773,7 @@ html.dark-theme .table-bordered td, html.dark-theme .table-bordered th {
 	border: 1px solid rgb(255 255 255 / 12%)
 }
 html.dark-theme .table-dark {
-	background-color: #1d2126
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 }
 html.dark-theme .table .thead-light th {
 	background-color: rgb(255 255 255 / 20%);
@@ -828,11 +832,11 @@ html.dark-theme .logo-dark {
 }
 html.dark-theme .email-toggle-btn {
 	color: #c9cbce;
-	background-color: #ffffff00
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);
 }
 html.dark-theme .chat-toggle-btn {
 	color: #c9cbce;
-	background-color: #ffffff00;
+	background-image: linear-gradient(90deg, #101727 44.35%, #0F192F 100.68%);;
 	border: 0 solid rgb(0 0 0 / 15%)
 }
 html.dark-theme .apexcharts-datalabel, html.dark-theme .apexcharts-datalabel-label, html.dark-theme .apexcharts-datalabel-value, html.dark-theme .apexcharts-datalabels, html.dark-theme .apexcharts-pie-label {

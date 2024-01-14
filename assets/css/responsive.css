@@ -31,22 +31,22 @@ Max - Width Query
 
 @media (max-width: 1700px){
 
-	.cv_about_content{
+	/* .cv_about_content{
 		max-width: 1055px;
 
-	}
+	} */
 
-	.cv_about_info{
+	/* .cv_about_info{
 		max-width: 560px;
-	}
+	} */
 
 	.cv_about_box{
 		padding: 20px 25px 20px 75px;
 	}
 
-	.cv_edu_box{
+	/* .cv_edu_box{
 		max-width: 454px;
-	}
+	} */
 
 	.cv_gallery_img{
 		height: auto;
@@ -73,7 +73,7 @@ Max - Width Query
 @media (max-width:1399.98px){
 
 	.cv_edu_box{
-		max-width: 385px;
+		/* max-width: 385px; */
 		padding: 20px;
 	}
 
@@ -159,9 +159,9 @@ Max - Width Query
     	text-align: center;
 	}
 
-	.cv_edu_heading h2, .cv_do_heading h2, .cv_client_heading h2{
+	/* .cv_edu_heading h2, .cv_do_heading h2, .cv_client_heading h2{
 		margin-left: auto;
-	}
+	} */
 
 	.cv_edu_heading p, .cv_client_heading p {
 	    margin: 30px auto 0;

@@ -20,5 +20,6 @@
 <!-- Theme Style CSS -->
 <link rel="stylesheet" href="<?=base_url()?>admin-assets/css/dark-theme.css"/>
 <link rel="stylesheet" href="<?=base_url()?>admin-assets/css/semi-dark.css"/>
-<link rel="stylesheet" href="<?=base_url()?>assets/css/header-colors.css"/>
+<link rel="stylesheet" href="<?=base_url()?>admin-assets/css/header-colors.css"/>
+<link href="<?=base_url()?>admin-assets/css/quill.snow.css" rel="stylesheet">
 <title></title>

@@ -9,24 +9,46 @@
 </div>
     <ul class="metismenu" id="menu">
         <li>
-            <a href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-home-alt'></i>
-                </div>
+            <a href="<?=base_url()?>UserDashboard/dashboard">
+                <div class="parent-icon"><i class='bx bx-home-alt'></i></div>
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
         <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
-                </div>
+            <a href="<?=base_url()?>UserDashboard/aboutUs">
+                <div class="parent-icon"><i class="bx bx-category"></i></div>
                 <div class="menu-title">About us</div>
             </a>
-            <ul>
-                <li> <a href="#"><i class='bx bx-radio-circle'></i>Add About</a>
-                </li>
-                <li> <a href="#"><i class='bx bx-radio-circle'></i>View About</a>
-                </li>
-            </ul>
+        </li>
+        <li>
+            <a href="<?=base_url()?>UserDashboard/education">
+                <div class="parent-icon"><i class="bx bx-book-add"></i></div>
+                <div class="menu-title">Education</div>
+            </a>
+        </li>
+        <li>
+            <a href="<?=base_url()?>UserDashboard/experience">
+                <div class="parent-icon"><i class="bx bx-tachometer"></i></div>
+                <div class="menu-title">Experience</div>
+            </a>
+        </li>
+        <li>
+            <a href="<?=base_url()?>UserDashboard/skills">
+                <div class="parent-icon"><i class="bx bx-book-open"></i></div>
+                <div class="menu-title">Skills</div>
+            </a>
+        </li>
+        <li>
+            <a href="<?=base_url()?>UserDashboard/projects">
+                <div class="parent-icon"><i class="bx bx-magnet"></i></div>
+                <div class="menu-title">Projects</div>
+            </a>
+        </li>
+        <li>
+            <a href="<?=base_url()?>UserDashboard/clients">
+                <div class="parent-icon"><i class="bx bx-group"></i></div>
+                <div class="menu-title">Clients</div>
+            </a>
         </li>
     </ul>
 </div>

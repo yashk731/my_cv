@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['user'] = 'Home/index';
 $route['user/dashboard'] = 'UserDashboard/dashboard';
 
+

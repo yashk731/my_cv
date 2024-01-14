@@ -26,22 +26,18 @@
   </div>
   <!--========== About Section Start============= -->
   <div class="cv_about_wrapper">
-    <div class="cv_container container-fluid  ">
+    <div class="cv_container container  ">
       <div class="row">
-        <div class="col-12">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
           <div class="cv_about_content">
-            <div class="cv_about_img">
-              <img src="<?=base_url()?>assets/images/about-img.webp" class="img-fluid">
-              <div class="cv_about_experience">
-                <div class="cv_about_exp">
-                  <h2>12</h2>
-                  <span>
-                    <p>YEARS</p>
-                    <p>OF EXPERIENCE</p>
-                  </span>
-                </div>
-              </div>
+            <div class="cv_about_img text-center">
+              <img src="<?=base_url()?>assets/images/yash-pic.jpg" class="img-fluid w-100 about-img">
             </div>
+          </div>
+        </div>
+        <div class="col-md-7 ">
+          <div class="cv_about_content">
             <div class="cv_about_info">
               <h2>About Me</h2>
               <div class="cv_about_box">
@@ -60,19 +56,60 @@
     </div>
   </div>
   <!--============= About Section End================== -->
-  <!--============= Education Section Start============ -->
-  <section class="cv_education_wrapper">
-    <div class="cv_container container-fluid">
-      <div class="row align-items-center">
-        <div class="col-xl-4">
-          <div class="cv_edu_heading">
-            <h2>Education</h2>
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+    <!--=========== Award Section Start======= -->
+    <section class="cv_award_wrapper">
+        <div class="container">
+          <div class="row justify-content-center">
+          <div class="col-md-4 col-sm-6">
+              <div class="cv_award_box">
+                <div class="cv_award_icon">
+                  <img src="<?=base_url()?>assets/images/award-3.svg">
+                </div>
+                <div class="cv_award_text">
+                  <h1 class="timer" data-from="0" data-to="20 " data-speed="2000"></h1>
+                  <h4>Years of Experience</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="cv_award_box">
+                <div class="cv_award_icon">
+                  <img src="<?=base_url()?>assets/images/award-1.svg">
+                </div>
+                <div class="cv_award_text">
+                  <h1><span class="timer" data-from="0" data-to="100" data-speed="2000"></span>+</h1>
+                  <h4>Happy Clients</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="cv_award_box">
+                <div class="cv_award_icon">
+                  <img src="<?=base_url()?>assets/images/award-2.svg">
+                </div>
+                <div class="cv_award_text">
+                  <h1 class="timer" data-from="0" data-to="80" data-speed="2000"></h1>
+                  <h4>Project Done</h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-xl-8">
-          <div class="cv_edu_info">
-            <div class="cv_edu_box box-1">
+      </section>
+  <!--======== Award Section End========= -->
+  <!--============= Education Section Start============ -->
+  <section class="cv_education_wrapper">
+    <div class="cv_container container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="cv_sec_heading">
+            <h2>Education</h2>
+            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+          </div>
+        </div>
+        <div class="col-xl-12">
+          <div class="row">
+            <div class="col-md-6 cv_edu_box box-1">
               <div class="cv_edu_title">
                 <h4>Diploma In UI/UX Design</h4>
                 <h1>2004</h1>
@@ -82,7 +119,7 @@
                 <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
               </div>
             </div>
-            <div class="cv_edu_box box-2">
+            <div class="col-md-6 cv_edu_box box-2">
               <div class="cv_edu_title">
                 <h4>Diploma In UI/UX Design</h4>
                 <h1>2006</h1>
@@ -92,23 +129,23 @@
                 <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
               </div>
             </div>
-            <div class="cv_edu_box box-3">
+            <div class="col-md-6 cv_edu_box box-3">
               <div class="cv_edu_title">
                 <h4>Diploma In UI/UX Design</h4>
                 <h1>2008</h1>
               </div>
               <div class="cv_edu_detail">
-                <span>- New York</span>
+                <span>- Dev Sanskriti University </span>
                 <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
               </div>
             </div>
-            <div class="cv_edu_box box-4">
+            <div class="col-md-6 cv_edu_box box-4">
               <div class="cv_edu_title">
                 <h4>Diploma In UI/UX Design</h4>
                 <h1>2009</h1>
               </div>
               <div class="cv_edu_detail">
-                <span>- New York</span>
+                <span>- Dev Sanskriti University </span>
                 <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
               </div>
             </div>
@@ -120,17 +157,23 @@
   <!--========== Education Section End ==============-->
   <!--========== Experience Section Start=========== -->
   <section class="cv_experience_wrapper">
-    <div class="cv_container container-fluid">
+    <div class="cv_container container">
       <div class="row align-items-center">
-        <div class="col-xl-8">
+        <div class="col-12">
+          <div class="cv_sec_heading">
+            <h2>My Experience</h2>
+            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+          </div>
+        </div>
+        <div class="col-xl-12">
           <div class="cv_exp_box">
             <h2>01</h2>
             <div class="cv_exp_com">
               <span>
                 <h3>Junior UI/UX Designer</h3>
-                <h4>- Amazon</h4>
+                <h5>- <a href="#">Ethinos Digital Marketing Pvt. Ltd.</a></h5>
               </span>
-              <h5>(2014-2015)</h5>
+              <h5>(2014-Till Now)</h5>
             </div>
           </div>
           <div class="cv_exp_box">
@@ -138,7 +181,7 @@
             <div class="cv_exp_com">
               <span>
                 <h3>Junior UI/UX Designer</h3>
-                <h4>- Amazon</h4>
+                <h5>- <a href="#">Ethinos Digital Marketing Pvt. Ltd.</a></h5>
               </span>
               <h5>(2014-2015)</h5>
             </div>
@@ -148,39 +191,9 @@
             <div class="cv_exp_com">
               <span>
                 <h3>Junior UI/UX Designer</h3>
-                <h4>- Amazon</h4>
+                <h5>- <a href="#">Ethinos Digital Marketing Pvt. Ltd.</a></h5>
               </span>
               <h5>(2014-2015)</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="cv_exp_info">
-            <div class="cv_exp_heading">
-              <h2>My Experience</h2>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-              <ul>
-                <li>
-                  <a href="javascript:void(0);">
-                    <img src="<?=base_url()?>assets/images/fig.svg">
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">
-                    <img src="<?=base_url()?>assets/images/ps.svg">
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">
-                    <img src="<?=base_url()?>assets/images/ai.svg">
-                  </a>
-                </li>
-                <li>
-                  <a href="javascript:void(0);">
-                    <img src="<?=base_url()?>assets/images/ae.svg">
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -189,8 +202,8 @@
   </section>
   <!--======== Experience Section End=========== -->
   <!--======== Do Section Start================= -->
-        <div class="cv_do_wrapper">
-        <div class="cv_container container-fluid">
+      <div class="cv_do_wrapper">
+        <div class="cv_container container">
           <div class="row align-items-center">
             <div class="col-xl-4">
               <div class="cv_do_heading">
@@ -253,178 +266,118 @@
         </div>
       </div>
   <!--=========== Do Section End============ -->
-  <!--=========== Award Section Start======= -->
-      <section class="cv_award_wrapper">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-6">
-              <div class="cv_award_box">
-                <div class="cv_award_icon">
-                  <img src="<?=base_url()?>assets/images/award-1.svg">
-                </div>
-                <div class="cv_award_text">
-                  <h1><span class="timer" data-from="0" data-to="100" data-speed="2000"></span>+</h1>
-                  <h4>Happy Clients</h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="cv_award_box">
-                <div class="cv_award_icon">
-                  <img src="<?=base_url()?>assets/images/award-2.svg">
-                </div>
-                <div class="cv_award_text">
-                  <h1 class="timer" data-from="0" data-to="80" data-speed="2000"></h1>
-                  <h4>Project Done</h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <div class="cv_award_box">
-                <div class="cv_award_icon">
-                  <img src="<?=base_url()?>assets/images/award-3.svg">
-                </div>
-                <div class="cv_award_text">
-                  <h1 class="timer" data-from="0" data-to="20" data-speed="2000"></h1>
-                  <h4>Award Won</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  <!--======== Award Section End========= -->
+
   <!--======== Skill Section Start======= -->
-        <section class="cv_skill_wrapper">
-        <div class="cv_container container-fluid">
-          <div class="row align-items-center">
-            <div class="col-xl-8">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="cv_skill_box">
-                    <div class="cv_skill_icon">
-                      <img src="<?=base_url()?>assets/images/skill-1.svg">
-                    </div>
-                    <div class="cv_skill_progress">
-                      <div class="cv_skill_text">
-                        <h4>Figma</h4>
-                        <p>95%</p>
-                      </div>
-                      <div class="cv_skill_bar">
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="cv_skill_box">
-                    <div class="cv_skill_icon">
-                      <img src="<?=base_url()?>assets/images/skill-2.svg">
-                    </div>
-                    <div class="cv_skill_progress">
-                      <div class="cv_skill_text">
-                        <h4>Photoshop</h4>
-                        <p>95%</p>
-                      </div>
-                      <div class="cv_skill_bar">
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="cv_skill_box">
-                    <div class="cv_skill_icon">
-                      <img src="<?=base_url()?>assets/images/skill-3.svg">
-                    </div>
-                    <div class="cv_skill_progress">
-                      <div class="cv_skill_text">
-                        <h4>Illustrator</h4>
-                        <p>95%</p>
-                      </div>
-                      <div class="cv_skill_bar">
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="cv_skill_box">
-                    <div class="cv_skill_icon">
-                      <img src="<?=base_url()?>assets/images/skill-4.svg">
-                    </div>
-                    <div class="cv_skill_progress">
-                      <div class="cv_skill_text">
-                        <h4>After Effect</h4>
-                        <p>95%</p>
-                      </div>
-                      <div class="cv_skill_bar">
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="cv_skill_box">
-                    <div class="cv_skill_icon">
-                      <img src="<?=base_url()?>assets/images/skill-5.svg">
-                    </div>
-                    <div class="cv_skill_progress">
-                      <div class="cv_skill_text">
-                        <h4>CorelDraw</h4>
-                        <p>95%</p>
-                      </div>
-                      <div class="cv_skill_bar">
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="cv_skill_box">
-                    <div class="cv_skill_icon">
-                      <img src="<?=base_url()?>assets/images/skill-6.svg">
-                    </div>
-                    <div class="cv_skill_progress">
-                      <div class="cv_skill_text">
-                        <h4>Premiere Pro</h4>
-                        <p>95%</p>
-                      </div>
-                      <div class="cv_skill_bar">
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <section class="cv_skill_wrapper">
+      <div class="cv_container container">
+        <div class="row align-items-center">
+          <div class="col-12">
+            <div class="cv_sec_heading">
+              <h2>My Skills</h2>
+              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
             </div>
-            <div class="col-xl-4">
-              <div class="cv_exp_info">
-                <div class="cv_exp_heading">
-                  <h2>My Skills</h2>
-                  <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+          </div>
+          <div class="col-xl-12">
+          <div class="row">
+          <div class="col-md-6">
+            <div class="cv_skill_box">
+              <div class="cv_skill_progress">
+                <div class="cv_skill_text">
+                  <h4>Figma</h4>
+                  <p>50%</p>
+                </div>
+                <div class="cv_skill_bar">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-md-6">
+            <div class="cv_skill_box">
+              <div class="cv_skill_progress">
+                <div class="cv_skill_text">
+                  <h4>Photoshop</h4>
+                  <p>95%</p>
+                </div>
+                <div class="cv_skill_bar">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cv_skill_box">
+              <div class="cv_skill_progress">
+                <div class="cv_skill_text">
+                  <h4>Illustrator</h4>
+                  <p>95%</p>
+                </div>
+                <div class="cv_skill_bar">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cv_skill_box">
+              <div class="cv_skill_progress">
+                <div class="cv_skill_text">
+                  <h4>After Effect</h4>
+                  <p>95%</p>
+                </div>
+                <div class="cv_skill_bar">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cv_skill_box">
+              <div class="cv_skill_progress">
+                <div class="cv_skill_text">
+                  <h4>CorelDraw</h4>
+                  <p>95%</p>
+                </div>
+                <div class="cv_skill_bar">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cv_skill_box">
+              <div class="cv_skill_progress">
+                <div class="cv_skill_text">
+                  <h4>Premiere Pro</h4>
+                  <p>95%</p>
+                </div>
+                <div class="cv_skill_bar">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
     <!--======= Skill Section End ========-->
     <!--======= Project Section Start==== -->
-          <section class="cv_project_wrapper">
-        <div class="cv_container container-fluid">
+      <section class="cv_project_wrapper">
+        <div class="cv_container container">
           <div class="row">
             <div class="col-12">
               <div class="cv_sec_heading">
@@ -498,39 +451,39 @@
   <!--====== Project Section End ======-->
   <!--====== Client Section Start===== -->
         <section class="cv_client_wrapper">
-        <div class="cv_container container-fluid">
+        <div class="cv_container container">
           <div class="row align-items-center">
-            <div class="col-xl-4">
-              <div class="cv_exp_info">
-                <div class="cv_client_heading">
-                  <h2>Our Clients</h2>
-                  <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                </div>
+          <div class="col-12">
+              <div class="cv_sec_heading">
+                <h2>Our Clients</h2>
+                <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
               </div>
             </div>
-            <div class="col-xl-8">
-              <div class="cv_client_info">
-                <div class="cv_client_box">
-                  <div class="cv_client_img">
-                    <img src="<?=base_url()?>assets/images/client-1.png">
-                  </div>
-                  <div class="cv_client_img">
-                    <img src="<?=base_url()?>assets/images/client-2.png">
-                  </div>
-                  <div class="cv_client_img">
-                    <img src="<?=base_url()?>assets/images/client-3.png">
-                  </div>
+            <div class="col-xl-12">
+              <div class="cv_client_box">
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-1.png">
                 </div>
-                <div class="cv_client_box">
-                  <div class="cv_client_img">
-                    <img src="<?=base_url()?>assets/images/client-4.png">
-                  </div>
-                  <div class="cv_client_img">
-                    <img src="<?=base_url()?>assets/images/client-5.png">
-                  </div>
-                  <div class="cv_client_img">
-                    <img src="<?=base_url()?>assets/images/client-6.png">
-                  </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-2.png">
+                </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-3.png">
+                </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-3.png">
+                </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-3.png">
+                </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-3.png">
+                </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-3.png">
+                </div>
+                <div class="cv_client_img">
+                  <img src="<?=base_url()?>assets/images/client-3.png">
                 </div>
               </div>
             </div>
@@ -548,7 +501,7 @@
                 <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-6 col-md-6">
               <div class="cv_address_box">
                 <div class="cv_address_icon">
                   <img src="<?=base_url()?>assets/images/add-1.svg">
@@ -560,7 +513,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-6 col-md-6">
               <div class="cv_address_box">
                 <div class="cv_address_icon">
                   <img src="<?=base_url()?>assets/images/add-2.svg">
@@ -572,7 +525,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-12 col-md-12">
               <div class="cv_address_box">
                 <div class="cv_address_icon">
                   <img src="<?=base_url()?>assets/images/add-3.svg">

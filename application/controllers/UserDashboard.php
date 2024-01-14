@@ -12,4 +12,29 @@ class UserDashboard extends CI_Controller {
 	{
 		$this->load->view('user/dashboard/dashboard');
 	}
+
+	public function aboutUs()
+	{
+		$this->load->view('user/dashboard/aboutUs');
+	}
+	public function education()
+	{
+		$this->load->view('user/dashboard/education');
+	}
+	public function experience()
+	{
+		$this->load->view('user/dashboard/experience');
+	}
+	public function skills()
+	{
+		$this->load->view('user/dashboard/skills');
+	}
+	public function projects()
+	{
+		$this->load->view('user/dashboard/projects');
+	}
+	public function clients()
+	{
+		$this->load->view('user/dashboard/clients');
+	}
 }

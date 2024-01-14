@@ -16,7 +16,7 @@
       
       <!-- Header Section Start -->
       <div class="cv_header_wrapper">
-        <div class="cv_container container-fluid">
+        <div class="cv_container container">
           <div class="row">
             <div class="col-12">
               <div class="cv_navbar">

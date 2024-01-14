@@ -411,6 +411,13 @@ a {
 
 }
 
+.imageBox{border:1px solid #aaa;padding:4px;overflow: hidden;background-repeat: no-repeat;cursor:move;border-radius:10px;background-size:contain;}
+.imageBox .thumbBox{width: 400px;height: 400px;border-radius:10px;box-sizing: border-box;border: 1px solid rgb(102, 102, 102);box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);background: none repeat scroll 0% 0% transparent;}
+.cropped img{border-radius:10px; background: rgba(0,0,0,0.7); border:1px solid #aaa;
+    padding:4px;width: 100%;}
+.bdr-white{border-radius:10px; background: rgba(0,0,0,0.7); border:1px solid #aaa;
+    padding:4px;} 
+.imageBox .spinner{position: absolute;top: 0;left: 0;bottom: 0;right: 0;text-align: center;line-height: 400px;background: rgba(0,0,0,0.7);}
 
 
 .sidebar-wrapper .metismenu ul ul ul a {
@@ -419,7 +426,10 @@ a {
 
 }
 
-
+.form-check .form-check-input {
+    float: none !important;
+    margin-left: -1.5em;
+}
 
 .sidebar-wrapper .metismenu .mm-active>a,
 

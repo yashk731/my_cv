@@ -4,7 +4,7 @@
           <div class="row">
             <div class="col-12">
               <div class="cv_footer_text">
-                <p>Copyright © <span id="copyYear"></span> Portfolio. All Rights Reserved</p>
+                <p>Copyright © <span id="copyYear"></span> <a href="#">easyprofile.in</a> All Rights Reserved</p>
               </div>
             </div>
           </div>
