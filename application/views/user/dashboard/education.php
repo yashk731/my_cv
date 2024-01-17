@@ -62,13 +62,13 @@
                                         <div class="col-md-6 repeater-remove-btn">
                                             <button class="btn btn-outline-danger remove-btn px-4" title="Remove Colloum"><i class="bx bx-x"></i></button>
                                         </div>
-                                        <div class="col-md-6 text-end">
-                                            <button class="btn btn-outline-secondary w-25">Save</button>
-                                        </div>
                                     </div><hr>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="col-md-12 text-end">
+                                <button class="btn btn-outline-secondary w-25">Save</button>
+                            </div>
+                        </form>
 					</div>
 				</div>
             </div>

@@ -3,8 +3,12 @@
         <nav class="navbar navbar-expand gap-3">
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
-                <div class="search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#">
-                    <!-- <h4>Wellcom Yash Kumar</h4> -->
+                <div class="search-bar d-lg-block ">
+                    <input type="text" class="form-control" value="www.easyprofile.com" id="copytoClipboard" title="Your Profile URL">
+                </div>
+                <div class="search-bar d-lg-block">
+                    <a href="#" onclick="copytoClipboard()" title="Copy URL" class="btn btn-outline-secondary"><i class="bx bx-copy"></i></a>
+                    <a href="" class="btn btn-outline-secondary" title="Run URL" target="_blank"><i class="bx bx-play"></i></a>
                 </div>
                 <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center gap-1">

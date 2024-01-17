@@ -2,7 +2,7 @@
       <!-- Loader Start -->
       <div class="loader">
         <div class="spinner">
-          <img src="<?=base_url()?>assets/images/loader.gif" alt="loader" class="img-fluid">
+          <img src="<?=base_url()?>logo/logo-white.png" alt="loader" class="img-fluid w-100">
         </div>
       </div>
       <!-- Loader End -->
