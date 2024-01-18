@@ -3,9 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UserDashboard extends CI_Controller {
 
+	public function __construct()
+	{
+        parent::__construct();
+        $this->load->model('UserModel','UM');
+    }
 	public function index()
 	{
-		$this->load->view('index');
+		$data['countries']=$this->UM->get_country();
+		$this->load->view('index',$data);
 	}
 
     public function dashboard()
