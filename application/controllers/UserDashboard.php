@@ -43,4 +43,12 @@ class UserDashboard extends CI_Controller {
 	{
 		$this->load->view('user/dashboard/clients');
 	}
+	public function myProfile()
+	{
+		$this->load->view('user/dashboard/myProfile');
+	}
+	public function changePassword()
+	{
+		$this->load->view('user/dashboard/changePassword');
+	}
 }

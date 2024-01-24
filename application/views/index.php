@@ -83,7 +83,7 @@
 			<div class="modal-header">
 				<div class="row">
 					<div class="col-md-6">
-						<img src="logo/logo-black.png" class="w-100" alt="" />
+						<img src="logo/logo-black.png"  alt="" />
 					</div>
 				</div>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -117,21 +117,33 @@
 						<div class="col-md-6">
 						<label for="inputEmailAddress" class="form-label">Mobile No.<span class="text-danger">*<span></label>
 						<!-- <input type="number" class="form-control" id="mobileNo" placeholder="Enter Your Mobile No." require> -->
-						<div class="input-group mb-3">
-						<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-						<ul class="dropdown-menu">
-						<?php
-								foreach ($countries as $country) {
-									?>
-							<li><a class="dropdown-item" href="#"><?=$country->phone_code?></a></li>
-							<?php }?>
-							<li><a class="dropdown-item" href="#">+60</a></li>
-							<li><a class="dropdown-item" href="#">+78</a></li>
-						</ul>
-						<input type="number" class="form-control" id="mobileNo" name="mobileNo"
-                                placeholder="Enter Your Mobile No." required>
-						<span id="mobileno_error" class="error_msg"></span>
-						</div>
+
+                        <div class="input-group mb-3">
+                            <select name="" id="" class="form-select" style="max-width: 30%;">
+                                <option value="">+91</option>
+                                <?php
+                                    foreach ($countries as $country) {
+                                ?>
+                                <option value=""><?=$country->phone_code?></option>
+                                <?php }?>
+                            </select>
+                            <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Your Mobile No." required>
+                        </div>
+
+						<!-- <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">+91</button>
+                            <ul class="dropdown-menu">
+                            <?php
+                                    //foreach ($countries as $country) {
+                                        ?>
+                                <li><a class="dropdown-item" href="#"><//?=$country->phone_code?></a></li>
+                                <?php// }?>
+                                <li><a class="dropdown-item" href="#">+60</a></li>
+                                <li><a class="dropdown-item" href="#">+78</a></li>
+                            </ul>
+                            <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Your Mobile No." required>
+                            <span id="mobileno_error" class="error_msg"></span>
+						</div> -->
 					</div>
                         <div class="col-md-6">
                             <label for="inputEmailAddress" class="form-label">Email<span
