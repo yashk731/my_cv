@@ -25,6 +25,7 @@
                                 </div>
                             </div>
                         </div><hr/>
+                        <form action="<?=base_url()?>User/save_education" method="post">
                         <div id="repeater">
                             <!-- Repeater Heading -->
                             <div class="d-flex align-items-center justify-content-between">
@@ -32,29 +33,28 @@
                                 <button class="btn btn-outline-primary  repeater-add-btn px-4" title="Add More Colloum"><i class="bx bx-plus"></i></button>
                             </div>
                             <!-- Repeater Items -->
-                            <form action="">
-                                <div class="items" data-group="test">
+                          
+                                <div class="items" data-group="eduction_data">
                                     <!-- Repeater Content -->
+                                  
                                     <div class="item-content">
                                         <div class="mb-3">
                                             <label for="inputEmail1" class="form-label">Enter Qualification Type<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Example : MCA" required>
+                                            <input type="text" class="form-control" data-name="education_type" placeholder="Example : MCA" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="inputEmail1" class="form-label">Enter School/College/Institute/University Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Enter Your School/College/Institute/University Name" required>
+                                            <input type="text" class="form-control" data-name="institute" placeholder="Enter Your School/College/Institute/University Name" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="inputEmail1" class="form-label">Year of Passing<span class="text-danger">*</span></label>
-                                            <input class="form-control"  type="month" id="">
+                                            <input class="form-control" data-name="year"  type="month" id="">
                                         </div>
                                         <div class="mt-3">
                                             <label for="file" class="mb-2">Add Some Description <span class="text-danger">*</span> (Max 40 words Accepted)</label>
                                         </div>
                                         <div id="editor" required>
-                                            <p>Hello World!</p>
-                                            <p>Some initial <strong>bold</strong> text</p>
-                                            <p><br></p>
+                                        <textarea data-name="description" id="">Hii Welcome</textarea>
                                         </div>
                                     </div>
                                     <!-- Repeater Remove Btn -->
@@ -65,11 +65,13 @@
                                     </div><hr>
                                 </div>
                             </div>
+                            
+					
                             <div class="col-md-12 text-end">
-                                <button class="btn btn-outline-secondary w-25">Save</button>
+                                <button class="btn btn-outline-secondary w-25" type="submit">Save</button>
                             </div>
                         </form>
-					</div>
+                        </div>
 				</div>
             </div>
         </div>

@@ -25,28 +25,66 @@
                                 </div>
                             </div>
                         </div><hr/>
-                        <form action="">
+                        <form action="<?=base_url()?>User/about_us" method="post" enctype= multipart/form-data>
                             <div class="mt-3">
+                            
                                 <label for="file" class="mb-2">Add Your Introduction <span class="text-danger">*</span> (Only 100 words Accepted)</label>
+                                <input type="text" name="introduction" minlength="10" maxlength="100" class="form-control" value="<?=!empty($about_data->introduction)?$about_data->introduction:""?>">
                             </div>
-                            <div id="editor" required>
+                            <!-- <div id="editor" required>
                                 <p>Hello World!</p>
                                 <p>Some initial <strong>bold</strong> text</p>
                                 <p><br></p>
-                            </div>
+                            </div> -->
                             <div class="mt-3">
                                 <label for="file" class="mb-2">Upload Your CV/Resume<span class="text-danger">*</span> (Only .pdf Accepted)</label>
-                                <input type="file" name="" id="" class="form-control" accept = "application/pdf" required>
+                                <input type="file" name="user_cv" id="user_cv" class="form-control" accept = "application/pdf" >
+                                <br/>
+                                <?php
+                                if(!empty($about_data->cv))
+                                {
+                                ?>
+                                <a href="<?=base_url()?><?=$about_data->cv?>" target="_blank">View Pdf</a>
+                                <?php }else{?>
+                                        <h6>No PDF Added</h6>
+                                    <?php }?>
                             </div>
                             <div class="col-md-12 text-end">
-                                <button class="btn btn-outline-secondary mt-4 w-25">Save</button>
+                                <button class="btn btn-outline-secondary mt-4 w-25" type="submit">Save</button>
                             </div>
                         </form>
 					</div>
 				</div>
             </div>
         </div>
+      
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
         <!--end page wrapper -->
+      
+        <script>
+
+            function checkPDFAvailability() {
+    $.ajax({
+        url: "<?php echo base_url('user/check_pdf_availability'); ?>",
+        type: "GET",
+       /// dataType: "json",
+        success: function(response) {
+            console.log(response.pdf_available);
+            if (response==1) {
+                $('#user_cv').prop('required', false);
+            } else {
+                $('#user_cv').prop('required', true);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+}
+$(document).ready(function() {
+   
+            checkPDFAvailability();
+        });
+            </script>
         <?php include_once('includes/footer.php') ?>
-    </body>
-</html>

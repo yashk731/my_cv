@@ -15,4 +15,10 @@ class UserModel extends CI_Model
   public function check_useremail($email){
     return $this->db->where(['email_id'=>$email,'status'=>1])->get('tbl_users');
   }
+  public function get_aboutus_data() 
+  {
+    $user_id=$this->session->userdata('user_id');
+    $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
+    return   $userdata;
+  }
 }
