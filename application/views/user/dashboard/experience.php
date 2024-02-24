@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="website_url" class="form-label">Enter Organisation Website URL <span class="text-danger">*</span></label>
-                                            <input type="url" class="form-control" data-name="website_url"placeholder="Enter Your Organisation Website URL" required>
+                                            <input type="url" class="form-control" data-name="website_url" placeholder="Enter Your Organisation Website URL" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="work_from" class="form-label">Work From<span class="text-danger">*</span></label>

@@ -22,7 +22,12 @@ class UserDashboard extends CI_Controller {
 	
     public function dashboard()
 	{
-		$this->load->view('user/dashboard/dashboard');
+		$user_id=$this->session->userdata('user_id');
+		$data['user_img']=$this->UM->user_image_data($user_id);
+		$data['total_project']=$this->db->where(['status'=>1,'user_id'=>$user_id])->get(' tbl_project')->num_rows();
+		$data['total_client']=$this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_client')->num_rows();
+		$data['total_experience']=$this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_experience')->num_rows();
+		$this->load->view('user/dashboard/dashboard',$data);
 	}
 
 	public function aboutUs()

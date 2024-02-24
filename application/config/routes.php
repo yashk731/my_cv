@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['user'] = 'Home/index';
 $route['UserDashboard'] = 'UserDashboard/dashboard';
 $route['logoutuser']='Login/LogoutUser';
+$route['save_user_img']='User/save_user_img';
+
+

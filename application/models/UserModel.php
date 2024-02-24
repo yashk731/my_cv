@@ -21,4 +21,13 @@ class UserModel extends CI_Model
     $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
     return   $userdata;
   }
+  public function save_user_image($data) 
+  {
+    return $this->db->insert('tbl_user_image',$data);
+  }
+  public function user_image_data($user_id)
+  {
+    return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_user_image')->row();
+  }
+ 
 }

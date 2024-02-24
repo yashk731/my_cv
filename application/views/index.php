@@ -460,11 +460,11 @@
                         success: function (response) {
                             if (response == 1) {
                                 $('#login_form_id')[0].reset();
-                                Swal.fire({
-                                    title: "Congratulations!",
-                                    text: " You are login succesfully !",
-                                    icon: "success",
-                                });
+                                // Swal.fire({
+                                //     title: "Congratulations!",
+                                //     text: " You are login succesfully !",
+                                //     icon: "success",
+                                // });
                                 window.location = "<?= base_url() ?>UserDashboard";
                             }
                             else if (response == 2) {
