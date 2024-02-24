@@ -29,5 +29,36 @@ class UserModel extends CI_Model
   {
     return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_user_image')->row();
   }
- 
+  public function show_user_data(){
+    return $this->db->select('tbl_user_image.image,tbl_about.introduction,tbl_about.cv')->join('tbl_user_image','tbl_about.user_id=tbl_user_image.user_id','left')->where(['tbl_user_image.status'=>1,'tbl_about.status'=>1])->get('tbl_about')->row();
+  }
+  public function total_project($user_id) 
+  {
+    return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_project')->num_rows();
+  }
+  public function total_client($user_id) 
+  {
+    return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_client')->num_rows();
+  }
+  public function total_experience($user_id) 
+  {
+    return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_experience')->num_rows();
+  }
+ public function show_education($user_id){
+  return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_qualification')->result();
+ }
+ public function show_experience($user_id){
+  return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_experience')->result();
+ }
+ public function show_skills($user_id){
+  return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_skills')->result();
+ }
+//  public function show_client($user_id){
+//   return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_qualification')->result();
+//  }
+
+
+
+
+
 }

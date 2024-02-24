@@ -52,9 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Login/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['user'] = 'Home/index';
+//$route['user'] = 'Home/index';
 $route['UserDashboard'] = 'UserDashboard/dashboard';
 $route['logoutuser']='Login/LogoutUser';
 $route['save_user_img']='User/save_user_img';
+$route['View/(:any)'] = 'Home/index/$1';
 
 
