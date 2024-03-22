@@ -16,8 +16,11 @@ window.onload = function() {
       this.files = [];
     })
     document.querySelector('#btnCrop').addEventListener('click', function() {
-      var img = cropper.getDataURL()
-      document.querySelector('.cropped').innerHTML += '<img src="' + img + '">';
+        var img = cropper.getDataURL();
+        document.getElementById('croppedImage').value = img;
+        document.querySelector('.cropped').innerHTML += '<img src="' + img + '">';
+        document.getElementById('btnCrop').style.display = "none";
+        document.getElementById('btnSave').style.display = "block";
     })
     document.querySelector('#btnZoomIn').addEventListener('click', function() {
       cropper.zoomIn();

@@ -21,10 +21,11 @@
                             </div>
                             <div class="col-md-6 ">
                                 <div class="form-check form-switch text-end">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" <?=$user_data->is_skill==1?'checked':""?> onchange="change_status(this,'is_skill')">
                                 </div>
                             </div>
                         </div><hr/>
+                        <form action="<?=base_url()?>User/save_skills" method="post">
                         <div id="repeater">
                             <!-- Repeater Heading -->
                             <div class="d-flex align-items-center justify-content-between">
@@ -32,17 +33,17 @@
                                 <button class="btn btn-outline-primary  repeater-add-btn px-4" title="Add More Colloum"><i class="bx bx-plus"></i></button>
                             </div>
                             <!-- Repeater Items -->
-                            <form action="">
-                                <div class="items" data-group="test">
+                           
+                                <div class="items" data-group="skill_data">
                                     <!-- Repeater Content -->
                                     <div class="row item-content">
                                         <div class="col-md-12 mb-3">
-                                            <label for="inputEmail1" class="form-label">Enter Your Skill<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Example : Java" required>
+                                            <label for="skill" class="form-label">Enter Your Skill<span class="text-danger">*</span></label>
+                                            <input type="text"  data-name="skill" class="form-control" placeholder="Example : Java" required>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                            <label for="inputEmail1" class="form-label">Mark in Percentage (%)<span class="text-danger">*</span></label>
-                                            <select class="form-control" required>
+                                            <label for="percantage" class="form-label">Mark in Percentage (%)<span class="text-danger">*</span></label>
+                                            <select class="form-control" required data-name="percantage">
                                                 <option value="0">0%</option>
                                                 <option value="10">10%</option>
                                                 <option value="20">20%</option>
@@ -69,6 +70,7 @@
                                 <button class="btn btn-outline-secondary w-25">Save</button>
                             </div>
                         </form>
+
 					</div>
 				</div>
             </div>

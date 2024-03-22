@@ -21,10 +21,11 @@
                             </div>
                             <div class="col-md-6 ">
                                 <div class="form-check form-switch text-end">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" <?=$user_data->is_experience==1?'checked':""?> onchange="change_status(this,'is_experience')">
                                 </div>
                             </div>
                         </div><hr/>
+                        <form action="<?=base_url()?>User/save_experience" method="post">
                         <div id="repeater">
                             <!-- Repeater Heading -->
                             <div class="d-flex align-items-center justify-content-between">
@@ -32,29 +33,29 @@
                                 <button class="btn btn-outline-primary  repeater-add-btn px-4" title="Add More Colloum"><i class="bx bx-plus"></i></button>
                             </div>
                             <!-- Repeater Items -->
-                            <form action="">
-                                <div class="items" data-group="test">
+                          
+                                <div class="items" data-group="experience_data">
                                     <!-- Repeater Content -->
                                     <div class="row item-content">
                                         <div class="col-md-12 mb-3">
-                                            <label for="inputEmail1" class="form-label">Enter Work Type<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Example : Web Developer" required>
+                                            <label for="work_type" class="form-label">Enter Work Type<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" data-name="work_type"  placeholder="Example : Web Developer" required>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                            <label for="inputEmail1" class="form-label">Enter Organisation Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Enter Your Organisation Name" required>
+                                            <label for="organisation_name" class="form-label">Enter Organisation Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" data-name="organisation_name"placeholder="Enter Your Organisation Name" required>
                                         </div>
                                         <div class="col-md-12 mb-3">
-                                            <label for="inputEmail1" class="form-label">Enter Organisation Website URL <span class="text-danger">*</span></label>
-                                            <input type="url" class="form-control" placeholder="Enter Your Organisation Website URL" required>
+                                            <label for="website_url" class="form-label">Enter Organisation Website URL <span class="text-danger">*</span></label>
+                                            <input type="url" class="form-control" data-name="website_url" placeholder="Enter Your Organisation Website URL" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="inputEmail1" class="form-label">Work From<span class="text-danger">*</span></label>
-                                            <input class="form-control"  type="month" id="" required>
+                                            <label for="work_from" class="form-label">Work From<span class="text-danger">*</span></label>
+                                            <input class="form-control"  data-name="work_from" type="month" id="" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="inputEmail1" class="form-label">Work To<span class="text-danger">*</span> (Choose Current Month for Till Now)</label>
-                                            <input class="form-control"  type="month" id=""  placeholder="Till Now" required>
+                                            <label for="work_to" class="form-label">Work To<span class="text-danger">*</span> (Choose Current Month for Till Now)</label>
+                                            <input class="form-control" data-name="work_to"  type="month" id=""  placeholder="Till Now" required>
                                         </div>
                                     </div>
                                     <!-- Repeater Remove Btn -->
@@ -66,7 +67,7 @@
                                 </div>
                         </div>
                         <div class="col-md-12 text-end">
-                            <button class="btn btn-outline-secondary w-25">Save</button>
+                            <button  type="submit" class="btn btn-outline-secondary w-25">Save</button>
                         </div>
                         </form>
 					</div>
