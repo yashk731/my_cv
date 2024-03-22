@@ -22,26 +22,35 @@ class UserDashboard extends CI_Controller {
 	
     public function dashboard()
 	{
+		
 		$user_id=$this->session->userdata('user_id');
 		$data['user_img']=$this->UM->user_image_data($user_id);
 		$data['total_project']=$this->UM->total_project($user_id);
 		$data['total_client']=$this->UM->total_client($user_id);
 		$data['total_experience']=$this->UM->total_experience($user_id);
+		$user_data= $this->UM->get_user_data();
+		$data['name_id'] = $user_data->first_name . "" . $user_data->last_name . "" . $user_data->id;
+	//	$data['user_data']=$this->db->select('*')->where("CONCAT(first_name,last_name,id)",$name_id)->get('tbl_users')->row();
+	
 		$this->load->view('user/dashboard/dashboard',$data);
 	}
 
 	public function aboutUs()
 	{
+		
 		$data['about_data']= $this->UM->get_aboutus_data();
+		$data['user_data']= $this->UM->get_user_data();
 		$this->load->view('user/dashboard/aboutUs',$data);
 	}
 	public function education()
 	{
-		$this->load->view('user/dashboard/education');
+		$data['user_data']= $this->UM->get_user_data();
+		$this->load->view('user/dashboard/education',$data);
 	}
 	public function experience()
 	{
-		$this->load->view('user/dashboard/experience');
+		$data['user_data']= $this->UM->get_user_data();
+		$this->load->view('user/dashboard/experience',$data);
 	}
 	public function skills()
 	{
@@ -51,11 +60,14 @@ class UserDashboard extends CI_Controller {
 		// }else{
 		// 	$this->load->view('user/dashboard/skills',$data);
 		// }
-		$this->load->view('user/dashboard/skills');
+		$data['user_data']= $this->UM->get_user_data();
+		$this->load->view('user/dashboard/skills',$data);
 	}
 	public function projects()
 	{
-		$this->load->view('user/dashboard/projects');
+		$data['user_data']= $this->UM->get_user_data();
+		$data['project_data']= $this->UM->getTotalProjectData();
+		$this->load->view('user/dashboard/projects',$data);
 	}
 	public function clients()
 	{

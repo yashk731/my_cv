@@ -14,6 +14,7 @@
             <h5>UI/UX Designer</h5>
             <h1>Hello! <span><img src="<?=base_url()?>assets/images/hand.svg" class="img-fluid"></span> I Am</h1>
             <h1 class="cv_profile_name"></h1>
+          
             <a href="#contactUs" class="btn btn-primary w-10 text-center">Contact Us</a>
           </div>
           <div class="cv_banner_box text-left mb-4">
@@ -429,7 +430,7 @@
         </div>
       </section>
   <!--==== Address Section End===== -->
-
 <?php include_once('includes/footer.php') ?>
+
 </body>
 </html>

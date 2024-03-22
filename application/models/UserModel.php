@@ -57,6 +57,18 @@ class UserModel extends CI_Model
 //   return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_qualification')->result();
 //  }
 
+public function get_user_data(){
+  $user_id=$this->session->userdata('user_id');
+   $response= $this->db->where(['id'=>$user_id,'status'=>1])->get('tbl_users')->row();
+   return   $response;
+}
+
+public function getTotalProjectData(){
+  $user_id=$this->session->userdata('user_id');
+  $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_project')->result();
+  return   $userdata;
+}
+
 
 
 

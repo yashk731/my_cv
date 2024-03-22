@@ -30,8 +30,13 @@
 
 		// Typing Effect
 		tyipng: function () {
+			var currentUrl = window.location.href;
+			var urlParts = currentUrl.split('/');
+            var lastPart = urlParts[urlParts.length - 1];
+			var username = lastPart.replace(/[\d_]+$/, '');
+			
 			 window.ityped.init(document.querySelector('.cv_profile_name'),{
-                strings: ['Yash Pratap'],
+                strings: [username],
                 loop: false,
                 typeSpeed:  300,
                 backSpeed:  500,
@@ -96,7 +101,6 @@
 		},
 
 	};
-	Resume.init();
-
+        Resume.init();	
 }(jQuery));
 

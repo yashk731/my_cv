@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-md-6 ">
                                 <div class="form-check form-switch text-end">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" <?=$user_data->is_experience==1?'checked':""?> onchange="change_status(this,'is_experience')">
                                 </div>
                             </div>
                         </div><hr/>

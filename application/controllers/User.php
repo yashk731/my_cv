@@ -507,4 +507,100 @@ class User extends CI_Controller
         
         }
     }
+    public function ChangeStatus(){
+        $status=$this->input->post('status');
+        $key=$this->input->post('key');
+        $user_id=$this->session->userdata('user_id');
+        $response=$this->db->where(['id'=>$user_id])->update('tbl_users',array($key=>$status));
+        if($response){
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+    public function add_project()
+    {
+       
+            $user_id = $this->session->userdata('user_id');
+            $file = $_FILES["faeture_image"];
+            $MyFileName = "";
+            if (strlen($file['name']) > 0) {
+                $image = $file["name"];
+                $config['upload_path'] = './assets/upload/Project_Image';
+                $config['allowed_types'] = 'jpg|png|jpeg';
+                $config['max_size'] = '1024';  // Size in KB
+                $config['file_name'] = $image;
+                $this->load->library("upload", $config);
+                $filestatus = $this->upload->do_upload('faeture_image');
+                if ($filestatus == true) {
+                    $MyFileName = $this->upload->data('file_name');
+                    $array['faeture_image'] = "assets/upload/Project_Image/" . $MyFileName;
+
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                   
+                    $result = $error;
+                }
+            }
+            //End: File upload code
+
+            $array['project_name'] = $this->input->post('project_name');
+            $array['working_role'] = $this->input->post('working_role');
+            $array['description'] = $this->input->post('description');
+            $array['project_url'] = $this->input->post('url');
+            $array['user_id'] = $user_id;
+            
+                $response = $this->db->insert('tbl_project', $array);
+            
+            if ($response) {
+                $this->session->set_flashdata('success', '<script>
+                $(document).ready(function(){
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "You data save successfully!",
+                });
+            });
+            </script>');
+                redirect(base_url() . "UserDashboard/projects");
+            } else {
+                $this->session->set_flashdata('success', '<script>
+                $(document).ready(function(){
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                });
+            });
+            </script>');
+                redirect(base_url() . "UserDashboard/projects");
+            }
+        }
+    public function delete_project($id){
+
+        $response = $this->db->where('id',$id)->delete('tbl_project');   
+        if ($response) {
+            $this->session->set_flashdata('success', '<script>
+            $(document).ready(function(){
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Project deleted successfully!",
+            });
+        });
+        </script>');
+            redirect(base_url() . "UserDashboard/projects");
+        } else {
+            $this->session->set_flashdata('success', '<script>
+            $(document).ready(function(){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+            });
+        });
+        </script>');
+            redirect(base_url() . "UserDashboard/projects");
+        }
+    }
 }

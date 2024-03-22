@@ -67,5 +67,37 @@
 		// Alert the copied text
 		alert("URL Copied");
 		}
-		
+		function change_status(val,key){
+			var checkboxValue = val.checked;
+			if(checkboxValue==true){
+				var status=1;
+			}else{
+				var status=0;
+			}
+                    $.ajax({
+                        type: "POST",
+                        url: "<?= base_url()?>/User/ChangeStatus",
+                        data: {
+                            status: status,
+                            key: key
+                        },
+                        success: function (response) {
+							if(response==1)
+							{
+								Swal.fire({
+								title: "Success!",
+								text: " Status Change Successfully!",
+								icon: "success",
+								});
+                            } else{
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: "Invalid Id and Password",
+                                });
+                            } 
+						}
+					});
+
+		}
 	</script>
