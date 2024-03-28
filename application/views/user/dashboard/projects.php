@@ -54,9 +54,9 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-content" id="pills-tabContent" >
                             <div class="tab-pane fade show active" id="pills-addProject" role="tabpanel">
-                                <form action="<?=base_url()?>User/add_project" method="post" enctype= multipart/form-data>
+                                <form action="<?=base_url()?>UserDashboard/add_project" method="post" enctype= multipart/form-data>
                                     <div class="items" data-group="test">
                                         <!-- Repeater Content -->
                                         <div class="row item-content">
@@ -88,7 +88,7 @@
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="pills-viewProject" role="tabpanel">
-                                <div class="table-responsive">
+                                <div class="table-responsive updated-container">
                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
@@ -111,15 +111,24 @@
                                                 }
                                             ?>
                                             <tr>
-                                                <td><img src="<?=base_url()?>admin-assets/images/login-images/login-cover.svg" alt="" ></td>
+                                                <td>
+                                                    <?php
+                                                    
+                                                    if(!empty($row->faeture_image)){?>
+                                                    <img src="<?=base_url()?>assets/upload/Project_Image/<?=$row->faeture_image?>" alt="" height="100px" width="100px">
+                                                <?php }else{?>
+                                                    <img src="<?=base_url()?>admin-assets/images/login-images/login-cover.svg" alt="" >
+                                                    <?php }?>
+                                                </td>
                                                 <td><?=$row->project_name?></td>
                                               <td><?=$project_url?></td>
                                               <td><?=$row->working_role?></td>
                                                 <td><?=$row->description?></td>
                                                 <td>
                                    
-                                                    <button class="btn btn-outline-success" title="Edit Project"><i class="bx bx-edit"></i></button>
-                                                    <a class="btn btn-outline-danger" href="<?=base_url()?>/User/delete_project/<?=$row->id?>"    onclick="return confirm('Are you sure you want to delete this Projects?');" title="Delete Project"><i class="bx bx-trash"></i>Delete</a>
+                                                    <button class="btn btn-outline-success " title="Edit Project" data-id="<?=$row->id?>"><i class="bx bx-edit"></i></button>
+                                                    <button class="btn btn-outline-success delete-btn" title="Delete Project"  onclick="delete_project(<?=$row->id?>)">Delete</button>
+                                                    <!-- <a class="btn btn-outline-danger" href="<?=base_url()?>/User/delete_project/<?=$row->id?>"    onclick="return confirm('Are you sure you want to delete this Projects?');" title="Delete Project"><i class="bx bx-trash"></i>Delete</a> -->
                                                 </td>
                                             </tr>
                                             <?php }?>
@@ -127,7 +136,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="tab-pane fade show active" id="pills-editProject" role="tabpanel" >
+                            <div class="tab-pane fade show active" id="pills-editProject" role="tabpanel" style="display:none;">
                                 <form action="">
                                     <div class="items" data-group="test">
                                         <!-- Repeater Content -->
@@ -166,13 +175,28 @@
             </div>
         </div>
         <!--end page wrapper -->
-        <?php include_once('includes/footer.php') ?>
-        <script src="<?=base_url()?>admin-assets/plugins/form-repeater/repeater.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
         <script>
-        /* Create Repeater */
-        $("#repeater").createRepeater({
-            showFirstItemToDefault: true,
-        });
-    </script>
-    </body>
-</html>
+        function delete_project(id){
+            var activeTabId = $('#pills-viewProject');
+            var confirmation = confirm("Are you sure you want to delete this project?");
+            if(confirmation){
+            $.ajax({
+                url: '<?=base_url('UserDashboard/delete_project/')?>' + id, 
+                type: 'POST',
+                success: function(response) {
+                    if(response==1){
+                        $('.updated-container').load(window.location.href + ' .updated-container', function() {
+                        $(activeTabId).tab('show');
+                    });
+                    }
+                },
+                error: function(xhr, status, error)  {
+                    console.error(xhr.responseText);
+                }
+            });
+            }
+        }
+</script>
+<?php include_once('includes/footer.php') ?>

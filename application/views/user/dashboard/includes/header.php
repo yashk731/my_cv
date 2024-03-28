@@ -1,7 +1,7 @@
 <?php
  $user_id=$this->session->userdata('user_id');
  $user_data= $this->db->where(['id'=>$user_id,'status'=>1])->get('tbl_users')->row();
-$name_id = $user_data->first_name . "" . $user_data->last_name . "" . $user_data->id;
+$name_id = $user_data->first_name . "" . $user_data->last_name . "" ."_". $user_data->id;
 
 ?>
 <header>
@@ -10,7 +10,7 @@ $name_id = $user_data->first_name . "" . $user_data->last_name . "" . $user_data
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
                 <div class="search-bar d-lg-block ">
-                    <input type="text" class="form-control" value="<?=base_url()?>User/<?=$name_id?>" id="copytoClipboard" title="Your Profile URL">
+                    <input type="text" class="form-control" value="<?=base_url()?>View/<?=$name_id?>" id="copytoClipboard" title="Your Profile URL">
                 </div>
                 <div class="search-bar d-lg-block">
                     <a href="#" onclick="copytoClipboard()" title="Copy URL" class="btn btn-outline-secondary"><i class="bx bx-copy"></i></a>

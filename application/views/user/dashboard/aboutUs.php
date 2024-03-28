@@ -25,11 +25,16 @@
                                 </div>
                             </div>
                         </div><hr/>
-                        <form action="<?=base_url()?>User/about_us" method="post" enctype= multipart/form-data>
+                        <form action="<?=base_url()?>UserDashboard/about_us" method="post" enctype= multipart/form-data>
                             <div class="mt-3">
                             
                                 <label for="file" class="mb-2">Add Your Introduction <span class="text-danger">*</span> (Only 100 words Accepted)</label>
                                 <input type="text" name="introduction" minlength="10" maxlength="100" class="form-control" value="<?=!empty($about_data->introduction)?$about_data->introduction:""?>">
+                            </div>
+                            <div class="mt-3">
+                            
+                                <label for="file" class="mb-2">Designation <span class="text-danger">*</span></label>
+                                <input type="text" name="designation" minlength="10"  class="form-control" value="<?=!empty($about_data->designation)?$about_data->designation:""?>">
                             </div>
                             <!-- <div id="editor" required>
                                 <p>Hello World!</p>
@@ -50,7 +55,14 @@
                                     <?php }?>
                             </div>
                             <div class="col-md-12 text-end">
-                                <button class="btn btn-outline-secondary mt-4 w-25" type="submit">Save</button>
+                                <?php
+                                if(!empty($about_data)){
+                                ?>
+                                <button class="btn btn-outline-secondary mt-4 w-25" type="submit">Update</button>
+                                <?php }else{?>
+                                    <button class="btn btn-outline-secondary mt-4 w-25" type="submit">Save</button>
+                                    <?php }?>
+
                             </div>
                         </form>
 					</div>
