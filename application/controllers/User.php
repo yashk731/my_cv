@@ -7,9 +7,9 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('user_id')) {
-            redirect(base_url());
-        }
+        // if (!$this->session->userdata('user_id')) {
+        //     redirect(base_url());
+        // }
         $this->load->model('UserModel', 'UM');
     }
 
@@ -87,71 +87,7 @@ class User extends CI_Controller
             }
         }
     }
-    public function about_us()
-    {
-        $this->form_validation->set_rules('introduction', 'Introduction', 'required|max_length[100]');
-
-        if ($this->form_validation->run() == FALSE) {
-
-            echo 5;
-        } else {
-
-            $user_id = $this->session->userdata('user_id');
-            $file = $_FILES["user_cv"];
-            $MyFileName = "";
-            if (strlen($file['name']) > 0) {
-                $image = $file["name"];
-                $config['upload_path'] = './assets/upload/CV';
-                $config['allowed_types'] = 'pdf';
-                $config['max_size'] = '1024';  // Size in KB
-                $config['file_name'] = $image;
-                $this->load->library("upload", $config);
-                $filestatus = $this->upload->do_upload('user_cv');
-                if ($filestatus == true) {
-                    $MyFileName = $this->upload->data('file_name');
-                    $array['cv'] = "assets/upload/CV/" . $MyFileName;
-
-                } else {
-                    $error = array('error' => $this->upload->display_errors());
-                    exit;
-                    $result = $error;
-                }
-            }
-            //End: File upload code
-
-            $array['introduction'] = $this->input->post('introduction');
-            $array['user_id'] = $user_id;
-            $userdata = $this->UM->get_aboutus_data();
-            if (!empty($userdata)) {
-                $response = $this->db->where('user_id', $user_id)->update('tbl_about', $array);
-            } else {
-                $response = $this->db->insert('tbl_about', $array);
-            }
-            if ($response) {
-                $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: "You data save successfully!",
-                });
-            });
-            </script>');
-                redirect(base_url() . "UserDashboard/aboutUs");
-            } else {
-                $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            });
-            </script>');
-                redirect(base_url() . "UserDashboard/aboutUs");
-            }
-        }
-    }
+    
     public function check_pdf_availability()
     {
         $result = $this->UM->get_aboutus_data();
@@ -161,124 +97,6 @@ class User extends CI_Controller
         } else {
             echo 0;
         }
-
-        //echo json_encode(array('pdf_available' => $pdfAvailable));
-    }
-    public function save_education()
-    {
-        $eduction_data = $this->input->post('eduction_data');
-        foreach ($eduction_data as $row) {
-            $data = array(
-                'education_type' => $row['education_type'],
-                'institute' => $row['institute'],
-                'year' => $row['year'],
-                // Assuming 'description' is not present in the provided array
-                'description' => $row['description'], // Adjust this as per your requirement
-                'user_id' => $this->session->userdata('user_id'),
-            );
-            $response = $this->db->insert('tbl_qualification', $data);
-        }
-        if ($response) {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: "You data save successfully!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/education");
-        } else {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/education");
-        }
-
-    }
-
-    public function save_experience()
-    {
-        $experience_data = $this->input->post('experience_data');
-        foreach ($experience_data as $row) {
-            $data = array(
-                'work_type' => $row['work_type'],
-                'organisation_name' => $row['organisation_name'],
-                'website_url' => $row['website_url'],
-                'work_from' => $row['work_from'],
-                'work_to' => $row['work_to'],
-                'user_id' => $this->session->userdata('user_id'),
-            );
-            $response = $this->db->insert('tbl_experience', $data);
-        }
-        if ($response) {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: "You data save successfully!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/experience");
-        } else {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/experience");
-        }
-
-    }
-    public function save_skills()
-    {
-        $skill_data = $this->input->post('skill_data');
-
-        foreach ($skill_data as $row) {
-            $data = array(
-                'skill' => $row['skill'],
-                'percantage' => $row['percantage'],
-                'user_id' => $this->session->userdata('user_id'),
-            );
-            $response = $this->db->insert('tbl_skills', $data);
-        }
-        if ($response) {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: "You data save successfully!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/skills");
-        } else {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/skills");
-        }
-
     }
     public function save_client()
 {

@@ -65,10 +65,31 @@ public function get_user_data(){
 
 public function getTotalProjectData(){
   $user_id=$this->session->userdata('user_id');
-  $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_project')->result();
-  return   $userdata;
+  $projectdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_project')->result();
+  return   $projectdata;
 }
 
+public function get_education_data(){
+  $user_id=$this->session->userdata('user_id');
+  $educationdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_qualification')->result();
+  return   $educationdata;
+}
+public function get_skill_data(){
+  $user_id=$this->session->userdata('user_id');
+  $skilldata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_skills')->result();
+  return   $skilldata;
+}
+public function get_experience_data(){
+  $user_id=$this->session->userdata('user_id');
+  $experiencedata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_experience')->result();
+  return $experiencedata;
+}
+
+public function get_client_data(){
+  $user_id=$this->session->userdata('user_id');
+  $clientdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_client')->result();
+  return $clientdata;
+}
 
 
 

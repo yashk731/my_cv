@@ -252,8 +252,8 @@
     </div>
     <!-- ========================================== -->
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
+       
     <!-- jqery validate cdn -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
@@ -499,7 +499,7 @@
                 if (country_id) {
                     $.ajax({
                         type: 'POST',
-                        url: '<?= base_url() ?>/User/get_state',
+                        url: '<?= base_url()?>/User/get_state',
                         data: {
                             country_id: country_id
                         },
