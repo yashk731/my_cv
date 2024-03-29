@@ -11,15 +11,15 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="cv_banner_text text-center">
-            <h5>UI/UX Designer</h5>
+            <h5><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h5>
             <h1>Hello! <span><img src="<?=base_url()?>assets/images/hand.svg" class="img-fluid"></span> I Am</h1>
             <h1 class="cv_profile_name"></h1>
           
             <a href="#contactUs" class="btn btn-primary w-10 text-center">Contact Us</a>
           </div>
           <div class="cv_banner_box text-left mb-4">
-            <h4>Freelance Web & Mobile UI/UX Designer</h4>
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internet tend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you.</p>
+            <h4><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h4>
+            <p><?=!empty($aboutus_data->carrier_objective)?$aboutus_data->carrier_objective:""?></p>
           </div>
         </div>
       </div>
@@ -33,7 +33,14 @@
         <div class="col-md-4">
           <div class="cv_about_content">
             <div class="cv_about_img text-center">
+              <?php
+              if(!empty($about_data->image)){
+              ?>
               <img src="<?=base_url()?>assets/upload/User_Images/<?=$about_data->image?>" class="img-fluid w-100 about-img">
+              <?php }else{?>
+                <img src="<?=base_url()?>assets/upload/download.png" class="img-fluid w-100 about-img" style="width:100%;height:400px">
+                <?php }?>
+
             </div>
           </div>
         </div>
@@ -43,11 +50,11 @@
               <h2>About Me</h2>
               <div class="cv_about_box">
                 <h3>Who I’m</h3>
-                <p><?=$about_data->introduction?></p>
+                <p><?=!empty($aboutus_data->introduction)?$aboutus_data->introduction:""?></p>
               </div>
               <div class="cv_about_btn">
-                <a href="<?=base_url()?><?=$about_data->cv?>" class="cv_btn" download>Download Resume</a>
-                <a href="<?=base_url()?><?=$about_data->cv?>" class="cv_btn" target="_blank">Contact Us</a>
+                <a href="<?=base_url()?><?=!empty($about_data->cv)?$about_data->cv:""?>" class="cv_btn" download>Download Resume</a>
+                <a href="<?=base_url()?><?=!empty($about_data->cv)?$about_data->cv:""?>" class="cv_btn" target="_blank">Contact Us</a>
               </div>
             </div>
           </div>
@@ -97,6 +104,9 @@
         </div>
       </section>
   <!--======== Award Section End========= -->
+<?php
+if($user_data->is_education==1){
+?>
   <!--============= Education Section Start============ -->
   <section class="cv_education_wrapper">
     <div class="cv_container container">
@@ -132,6 +142,10 @@
     </div>
   </section>
   <!--========== Education Section End ==============-->
+<?php }?>
+<?php
+if($user_data->is_experience==1){
+?>
   <!--========== Experience Section Start=========== -->
   <section class="cv_experience_wrapper">
     <div class="cv_container container">
@@ -162,6 +176,7 @@
     </div>
   </section>
   <!--======== Experience Section End=========== -->
+  <?php }?>
   <!--======== Do Section Start================= -->
       <div class="cv_do_wrapper">
         <div class="cv_container container">
@@ -227,7 +242,9 @@
         </div>
       </div>
   <!--=========== Do Section End============ -->
-
+  <?php
+if($user_data->is_skill==1){
+?>
   <!--======== Skill Section Start======= -->
     <section class="cv_skill_wrapper">
       <div class="cv_container container">
@@ -265,6 +282,10 @@
       </div>
     </section>
     <!--======= Skill Section End ========-->
+    <?php }?>
+    <?php
+if($user_data->is_project==1){
+?>
     <!--======= Project Section Start==== -->
       <section class="cv_project_wrapper">
         <div class="cv_container container">
@@ -339,6 +360,7 @@
         </div>
       </section>
   <!--====== Project Section End ======-->
+  <?php }?>
   <!--====== Client Section Start===== -->
         <section class="cv_client_wrapper">
         <div class="cv_container container">

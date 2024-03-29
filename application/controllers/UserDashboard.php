@@ -31,7 +31,7 @@ class UserDashboard extends CI_Controller
 	public function aboutUs()
 	{
 
-		$data['about_data'] = $this->UM->get_aboutus_data();
+		$data['about_data'] = $this->UM->get_aboutus();
 		$data['user_data'] = $this->UM->get_user_data();
 		$this->load->view('user/dashboard/aboutUs', $data);
 	}
@@ -64,6 +64,10 @@ class UserDashboard extends CI_Controller
 		$data['user_data'] = $this->UM->get_user_data();
 		$data['client_data'] = $this->UM->get_client_data();
 		$this->load->view('user/dashboard/clients',$data);
+	}
+	public function demo()
+	{
+		$this->load->view('user/dashboard/test');
 	}
 
 	public function test()
@@ -316,6 +320,7 @@ class UserDashboard extends CI_Controller
 
             $array['introduction'] = $this->input->post('introduction');
 			$array['designation'] = $this->input->post('designation');
+			$array['carrier_objective'] = $this->input->post('carrier_objective');
             $array['user_id'] = $user_id;
             $userdata = $this->UM->get_aboutus_data();
             if (!empty($userdata)) {
@@ -347,7 +352,7 @@ class UserDashboard extends CI_Controller
                 redirect(base_url() . "UserDashboard/aboutUs");
             }
         }
-		public function save_client2() {
+		public function save_client_old() {
 			$this->load->library('upload'); 
 		
 			$config['upload_path'] = './assets/upload/logo';
@@ -453,54 +458,9 @@ class UserDashboard extends CI_Controller
 		redirect(base_url() . "UserDashboard/clients");
 		}
 		
-		public function save_client() {
-			// Check if form data is submitted
-			if ($this->input->post()) {
-				// Get form data
-				$ids = $this->input->post('id');
-				$logos = $this->input->post('logo');
-				$existing_logos = $this->input->post('existing_logo');
-				$urls = $this->input->post('url');
-				$user_id = $this->session->userdata('user_id'); // Assuming user_id is stored in session
+		
 	
-				// Loop through the submitted data
-				foreach ($ids as $key => $id) {
-					// Check if an existing logo is provided for updating
-					if (!empty($existing_logos[$key])) {
-						$update_data = array(
-							'url' => $urls[$key],
-							'logo' => $existing_logos[$key],
-							'user_id' => $user_id
-						);
-						$this->db->where('id',$id)->update('tbl_client',$update_data);
-					} else {
-						// Handle new logo uploads
-						if (!empty($logos['name'][$key])) {
-							// Handle logo upload if provided
-							// Example: $this->upload_logo($logos['name'][$key]);
-							$upload_data = $this->upload_logo($logos['name'][$key]);
-							$image_path = $upload_data['file_name'];
-	
-							// Prepare data for insertion
-							$insert_data = array(
-								'url' => $urls[$key],
-								'logo' => $image_path,
-								'user_id' => $user_id
-							);
-	
-							// Insert new client data
-							$this->db->insert($insert_data);
-						}
-					}
-				}
-	
-				// Redirect to appropriate page after processing form data
-				redirect('UserDashboard/clients');
-			} else {
-				// Handle form not being submitted
-				// Redirect or show error message as needed
-			}
-		}
+		
 		private function upload_logo($file_name) {
 			// Load the upload library
 			$this->load->library('upload');
@@ -594,6 +554,75 @@ class UserDashboard extends CI_Controller
 					redirect(base_url() . "UserDashboard/projects");
 				}
 			}
+
+			public function save_client() {
+				if ($this->input->post()) {
+					// echo "<pre>";
+					// print_r($_POST);
+					// echo "</pre>";
+					// exit;
+					$ids = $this->input->post('id');
+					$logos = $_FILES['logo'];
+					$existing_logos = $this->input->post('existing_logo');
+					$urls = $this->input->post('url');
+					$user_id = $this->session->userdata('user_id'); 
+			
+					// Loop through the submitted data
+					foreach ($ids as $key => $id) {
+						// Check if an existing logo is provided for updating
+						if (!empty($existing_logos[$key])) {
+							$update_data = array(
+								'url' => $urls[$key],
+								'logo' => $existing_logos[$key],
+								'user_id' => $user_id
+							);
+							if (!empty($id)) {
+								$response = $this->db->where('id', $id)->update('tbl_client', $update_data);
+							} else {
+								$response = $this->db->insert('tbl_client', $update_data);
+							}
+						} else {
+							// Upload new logo if provided
+							if (!empty($logos['name'][$key])) {
+								$config['upload_path'] = './assets/upload/logo';
+								$config['allowed_types'] = 'gif|jpg|jpeg|png';
+								$config['encrypt_name'] = true;
+								$this->load->library('upload', $config);
+			
+								if ($this->upload->do_upload('logo')) {
+									$upload_data = $this->upload->data();
+									$image_path = $upload_data['file_name'];
+			
+									// Prepare data for insertion
+									$insert_data = array(
+										'url' => $urls[$key],
+										'logo' => $image_path,
+										'user_id' => $user_id
+									);
+			
+									// Insert or update new client data
+									if (!empty($id)) {
+										$response = $this->db->where('id', $id)->update('tbl_client', $insert_data);
+									} else {
+										$response = $this->db->insert('tbl_client', $insert_data);
+									}
+								} else {
+									// Handle upload errors
+									$error = $this->upload->display_errors();
+									echo "Failed to upload image: $error";
+								}
+							}
+						}
+					}
+			
+					// Redirect to appropriate page after processing form data
+					redirect('UserDashboard/clients');
+				} else {
+					// Handle form not being submitted
+					// Redirect or show error message as needed
+				}
+			}
+			
 }
 
 

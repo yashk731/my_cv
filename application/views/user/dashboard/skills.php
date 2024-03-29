@@ -32,7 +32,7 @@
                             <!-- Repeater Heading -->
                             <div class="d-flex align-items-center justify-content-between">
                                 <h5 class="mb-0"></h5>
-                                <button class="btn btn-outline-primary" id="add-class" title="Add More Colloum">add</button>
+                                <button class="btn btn-outline-primary" id="add-class" title="Add More Colloum"><i class="bx bx-plus"></i></button>
                             </div>
                             <!-- Repeater Items -->
                             

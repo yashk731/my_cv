@@ -15,9 +15,9 @@ class UserModel extends CI_Model
   public function check_useremail($email){
     return $this->db->where(['email_id'=>$email,'status'=>1])->get('tbl_users');
   }
-  public function get_aboutus_data() 
+  public function get_aboutus_data($user_id) 
   {
-    $user_id=$this->session->userdata('user_id');
+   
     $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
     return   $userdata;
   }
@@ -29,8 +29,8 @@ class UserModel extends CI_Model
   {
     return $this->db->where(['status'=>1,'user_id'=>$user_id])->get('tbl_user_image')->row();
   }
-  public function show_user_data(){
-    return $this->db->select('tbl_user_image.image,tbl_about.introduction,tbl_about.cv')->join('tbl_user_image','tbl_about.user_id=tbl_user_image.user_id','left')->where(['tbl_user_image.status'=>1,'tbl_about.status'=>1])->get('tbl_about')->row();
+  public function show_user_data($user_id){
+    return $this->db->select('tbl_user_image.image,tbl_about.introduction,tbl_about.cv')->join('tbl_user_image','tbl_about.user_id=tbl_user_image.user_id','left')->where(['tbl_user_image.status'=>1,'tbl_about.status'=>1,'tbl_about.user_id'=>$user_id])->get('tbl_about')->row();
   }
   public function total_project($user_id) 
   {
@@ -91,7 +91,12 @@ public function get_client_data(){
   return $clientdata;
 }
 
-
+public function get_aboutus() 
+  {
+    $user_id=$this->session->userdata('user_id');
+    $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
+    return   $userdata;
+  }
 
 
 }

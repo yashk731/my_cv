@@ -36,6 +36,13 @@
                                 <label for="file" class="mb-2">Designation <span class="text-danger">*</span></label>
                                 <input type="text" name="designation" minlength="10"  class="form-control" value="<?=!empty($about_data->designation)?$about_data->designation:""?>">
                             </div>
+                            <div class="mt-3">
+                            
+                            <label for="file" class="mb-2">Carrier Objective <span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="carrier_objective" aria-label="With textarea" style="height: 110px;" required><?=$about_data->carrier_objective?></textarea>
+                        </div>
+                            
+
                             <!-- <div id="editor" required>
                                 <p>Hello World!</p>
                                 <p>Some initial <strong>bold</strong> text</p>
