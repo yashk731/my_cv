@@ -28,10 +28,9 @@
                         <form action="">
                             <div class="mt-3">
                                 <label for="file" class="mb-2">Add Your Introduction <span class="text-danger">*</span> (Only 100 words Accepted)</label>
+                                <textarea id="editor" required name="" id="" cols="30" rows="20"></textarea>
                             </div>
-                            <div id="editor" required>
-                                <textarea name="" id="">Hii Welcome</textarea>
-                            </div>
+                            
                             <div class="mt-3">
                                 <label for="file" class="mb-2">Upload Your CV/Resume<span class="text-danger">*</span> (Only .pdf Accepted)</label>
                                 <input type="file" name="" id="" class="form-control" accept = "application/pdf" required>

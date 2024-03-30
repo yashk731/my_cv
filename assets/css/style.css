@@ -135,6 +135,9 @@ p {
     background-size: cover;
 }
 
+
+#viewMore{display:none;}
+
 section{
     padding: 90px 0;
 }
@@ -450,7 +453,7 @@ section{
 *******************************************************/
 
 .cv_banner_wrapper {
-    background-image: url(../images/banner-bg.webp);
+    background-image: url(../images/strength_bg.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

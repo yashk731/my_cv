@@ -438,11 +438,30 @@
                     </div>
                   </div>
                 </div>
+                <span id="viewMore">
+                  <div class="cv_project_box">
+                    <div class="cv_project_img">
+                      <img src="<?=base_url()?>assets/images/proj-3.webp" class="img-fluid">
+                    </div>
+                    <div class="cv_project_text">
+                      <div class="cv_project_heading">
+                        <p>Development</p>
+                        <span>
+                          <img src="<?=base_url()?>assets/images/time.svg">
+                          1 Month Ago
+                        </span>
+                      </div>
+                      <div class="cv_project_title">
+                        <p>Best Wireframe Tools For Web Designers.</p>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
             <div class="col-12">
               <div class="cv_bottom_btn">
-                <a href="javascript:void(0)" class="cv_btn">View More</a>
+                <a href="javascript:void(0)" class="cv_btn" id="toggle">View More</a>
               </div>
             </div>
           </div>
