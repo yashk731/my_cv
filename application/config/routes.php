@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['UserDashboard'] = 'UserDashboard/dashboard';
 $route['logoutuser']='Login/LogoutUser';
 $route['save_user_img']='User/save_user_img';
+
 $route['View/(:any)'] = 'Home/index/$1';
 
 
