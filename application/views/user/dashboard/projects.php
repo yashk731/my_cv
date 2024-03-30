@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-md-6 ">
                                 <div class="form-check form-switch text-end">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" <?=$user_data->is_project==1?'checked':""?> onchange="change_status(this,'is_project')">
                                 </div>
                             </div>
                         </div><hr/>
@@ -44,7 +44,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item" role="presentation" style="display:none;">
+                            <li class="nav-item" role="presentation">
                                 <a class="nav-link" data-bs-toggle="pill" href="#pills-editProject" role="tab" aria-selected="false">
                                     <div class="d-flex align-items-center">
                                         <div class="tab-icon"><i class='bx bx-edit font-18 me-1'></i>
@@ -54,41 +54,41 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-content" id="pills-tabContent" >
                             <div class="tab-pane fade show active" id="pills-addProject" role="tabpanel">
-                                <form action="">
+                                <form action="<?=base_url()?>UserDashboard/add_project" method="post" enctype= multipart/form-data>
                                     <div class="items" data-group="test">
                                         <!-- Repeater Content -->
                                         <div class="row item-content">
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project Name<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Enter Project Name" required>
+                                                <input type="text" class="form-control" placeholder="Enter Project Name" required name="project_name">
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project URL</label>
-                                                <input type="url" class="form-control" placeholder="Enter Project URL" required>
+                                                <input type="url" name="project_url" class="form-control" placeholder="Enter Project URL" >
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Your Working Role <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Example : Project Manager" required>
+                                                <input type="text" name="working_role"  class="form-control" placeholder="Example : Project Manager" required>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Upload Feature Image<span class="text-danger">*</span> (Image must be in 330 × 192 px )</label>
-                                                <input class="form-control"  type="file" id="" accept="image/*"  required>
+                                                <input class="form-control" type="file" id="" name="faeture_image" accept="image/*"  required>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project Description<span class="text-danger">*</span> (Max 40 words Accepted)</label>
-                                                <textarea class="form-control" aria-label="With textarea" style="height: 110px;" required></textarea>
+                                                <textarea class="form-control" name="description" aria-label="With textarea" style="height: 110px;" required></textarea>
                                             </div>
                                             <div class="col-md-12 text-end">
-                                                <button class="btn btn-outline-secondary w-25">Save</button>
+                                                <button type="submit" class="btn btn-outline-secondary w-25">Save</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="pills-viewProject" role="tabpanel">
-                                <div class="table-responsive">
+                                <div class="table-responsive updated-container">
                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
@@ -101,17 +101,37 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            foreach($project_data as $row)
+                                            {
+                                                if($row->project_url!=null || $row->project_url!=""){
+                                                    $project_url=$row->project_url;
+                                                }else{
+                                                    $project_url="___";
+                                                }
+                                            ?>
                                             <tr>
-                                                <td><img src="<?=base_url()?>admin-assets/images/login-images/login-cover.svg" alt="" ></td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>Project Manager</td>
-                                                <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
                                                 <td>
-                                                    <button class="btn btn-outline-success" title="Edit Project"><i class="bx bx-edit"></i></button>
-                                                    <button class="btn btn-outline-danger" title="Delete Project"><i class="bx bx-trash"></i></button>
+                                                    <?php
+                                                    
+                                                    if(!empty($row->faeture_image)){?>
+                                                    <img src="<?=base_url()?>assets/upload/Project_Image/<?=$row->faeture_image?>" alt="" height="100px" width="100px">
+                                                <?php }else{?>
+                                                    <img src="<?=base_url()?>admin-assets/images/login-images/login-cover.svg" alt="" >
+                                                    <?php }?>
+                                                </td>
+                                                <td><?=$row->project_name?></td>
+                                              <td><?=$project_url?></td>
+                                              <td><?=$row->working_role?></td>
+                                                <td><?=$row->description?></td>
+                                                <td>
+                                   
+                                                    <button class="btn btn-outline-success " title="Edit Project" data-id="<?=$row->id?>"><i class="bx bx-edit"></i></button>
+                                                    <button class="btn btn-outline-success delete-btn" title="Delete Project"  onclick="delete_project(<?=$row->id?>)">Delete</button>
+                                                    <!-- <a class="btn btn-outline-danger" href="<?=base_url()?>/User/delete_project/<?=$row->id?>"    onclick="return confirm('Are you sure you want to delete this Projects?');" title="Delete Project"><i class="bx bx-trash"></i>Delete</a> -->
                                                 </td>
                                             </tr>
+                                            <?php }?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -155,13 +175,28 @@
             </div>
         </div>
         <!--end page wrapper -->
-        <?php include_once('includes/footer.php') ?>
-        <script src="<?=base_url()?>admin-assets/plugins/form-repeater/repeater.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
         <script>
-        /* Create Repeater */
-        $("#repeater").createRepeater({
-            showFirstItemToDefault: true,
-        });
-    </script>
-    </body>
-</html>
+        function delete_project(id){
+            var activeTabId = $('#pills-viewProject');
+            var confirmation = confirm("Are you sure you want to delete this project?");
+            if(confirmation){
+            $.ajax({
+                url: '<?=base_url('UserDashboard/delete_project/')?>' + id, 
+                type: 'POST',
+                success: function(response) {
+                    if(response==1){
+                        $('.updated-container').load(window.location.href + ' .updated-container', function() {
+                        $(activeTabId).tab('show');
+                    });
+                    }
+                },
+                error: function(xhr, status, error)  {
+                    console.error(xhr.responseText);
+                }
+            });
+            }
+        }
+</script>
+<?php include_once('includes/footer.php') ?>

@@ -11,14 +11,15 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="cv_banner_text text-center">
-            <h5>UI/UX Designer</h5>
+            <h5><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h5>
             <h1>Hello! <span><img src="<?=base_url()?>assets/images/hand.svg" class="img-fluid"></span> I Am</h1>
             <h1 class="cv_profile_name"></h1>
+          
             <a href="#contactUs" class="btn btn-primary w-10 text-center">Contact Us</a>
           </div>
           <div class="cv_banner_box text-left mb-4">
-            <h4>Freelance Web & Mobile UI/UX Designer</h4>
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internet tend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you.</p>
+            <h4><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h4>
+            <p><?=!empty($aboutus_data->carrier_objective)?$aboutus_data->carrier_objective:""?></p>
           </div>
         </div>
       </div>
@@ -32,7 +33,14 @@
         <div class="col-md-4">
           <div class="cv_about_content">
             <div class="cv_about_img text-center">
-              <img src="<?=base_url()?>assets/images/yash-pic.jpg" class="img-fluid w-100 about-img">
+              <?php
+              if(!empty($about_data->image)){
+              ?>
+              <img src="<?=base_url()?>assets/upload/User_Images/<?=$about_data->image?>" class="img-fluid w-100 about-img">
+              <?php }else{?>
+                <img src="<?=base_url()?>assets/upload/download.png" class="img-fluid w-100 about-img" style="width:100%;height:400px">
+                <?php }?>
+
             </div>
           </div>
         </div>
@@ -42,12 +50,11 @@
               <h2>About Me</h2>
               <div class="cv_about_box">
                 <h3>Who I’m</h3>
-                <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
-                <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                <p><?=!empty($aboutus_data->introduction)?$aboutus_data->introduction:""?></p>
               </div>
               <div class="cv_about_btn">
-                <a href="javascript:void(0);" class="cv_btn">Download Resume</a>
-                <a href="javascript:void(0);" class="cv_btn">Contact Us</a>
+                <a href="<?=base_url()?><?=!empty($about_data->cv)?$about_data->cv:""?>" class="cv_btn" download>Download Resume</a>
+                <a href="<?=base_url()?><?=!empty($about_data->cv)?$about_data->cv:""?>" class="cv_btn" target="_blank">Contact Us</a>
               </div>
             </div>
           </div>
@@ -66,7 +73,7 @@
                   <img src="<?=base_url()?>assets/images/award-3.svg">
                 </div>
                 <div class="cv_award_text">
-                  <h1 class="timer" data-from="0" data-to="20 " data-speed="2000"></h1>
+                  <h1 class="timer" data-from="0" data-to="<?=$total_experience?>" data-speed="2000"></h1>
                   <h4>Years of Experience</h4>
                 </div>
               </div>
@@ -77,7 +84,7 @@
                   <img src="<?=base_url()?>assets/images/award-1.svg">
                 </div>
                 <div class="cv_award_text">
-                  <h1><span class="timer" data-from="0" data-to="100" data-speed="2000"></span>+</h1>
+                  <h1><span class="timer" data-from="0" data-to="<?=$total_client?>" data-speed="2000"></span></h1>
                   <h4>Happy Clients</h4>
                 </div>
               </div>
@@ -88,7 +95,7 @@
                   <img src="<?=base_url()?>assets/images/award-2.svg">
                 </div>
                 <div class="cv_award_text">
-                  <h1 class="timer" data-from="0" data-to="80" data-speed="2000"></h1>
+                  <h1 class="timer" data-from="0" data-to="<?=$total_project?>" data-speed="2000"></h1>
                   <h4>Project Done</h4>
                 </div>
               </div>
@@ -97,6 +104,9 @@
         </div>
       </section>
   <!--======== Award Section End========= -->
+<?php
+if($user_data->is_education==1){
+?>
   <!--============= Education Section Start============ -->
   <section class="cv_education_wrapper">
     <div class="cv_container container">
@@ -109,52 +119,33 @@
         </div>
         <div class="col-xl-12">
           <div class="row">
+            <?php
+            foreach ($education_data as $edu) {
+            
+            ?>
             <div class="col-md-6 cv_edu_box box-1">
               <div class="cv_edu_title">
-                <h4>Diploma In UI/UX Design</h4>
-                <h1>2004</h1>
+                <h4><?=$edu->education_type?></h4>
+                <h1><?=$edu->year?></h1>
               </div>
               <div class="cv_edu_detail">
-                <span>- New York</span>
-                <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
+                <span>- <?=$edu->institute?></span>
+                <p><?=$edu->description?></p>
               </div>
             </div>
-            <div class="col-md-6 cv_edu_box box-2">
-              <div class="cv_edu_title">
-                <h4>Diploma In UI/UX Design</h4>
-                <h1>2006</h1>
-              </div>
-              <div class="cv_edu_detail">
-                <span>- New York</span>
-                <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
-              </div>
-            </div>
-            <div class="col-md-6 cv_edu_box box-3">
-              <div class="cv_edu_title">
-                <h4>Diploma In UI/UX Design</h4>
-                <h1>2008</h1>
-              </div>
-              <div class="cv_edu_detail">
-                <span>- Dev Sanskriti University </span>
-                <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
-              </div>
-            </div>
-            <div class="col-md-6 cv_edu_box box-4">
-              <div class="cv_edu_title">
-                <h4>Diploma In UI/UX Design</h4>
-                <h1>2009</h1>
-              </div>
-              <div class="cv_edu_detail">
-                <span>- Dev Sanskriti University </span>
-                <p>Embarrassing hidden in the middle of text. All the Lorem Ipsum generate on the are Internettend to repeat predefined chunks as necessary, making of this the first true generator on the Internet which don't look even you. Amet minim mollit.</p>
-              </div>
-            </div>
+           <?php }?>
+            
+           
           </div>
         </div>
       </div>
     </div>
   </section>
   <!--========== Education Section End ==============-->
+<?php }?>
+<?php
+if($user_data->is_experience==1){
+?>
   <!--========== Experience Section Start=========== -->
   <section class="cv_experience_wrapper">
     <div class="cv_container container">
@@ -166,41 +157,26 @@
           </div>
         </div>
         <div class="col-xl-12">
+        <?php
+            foreach ($experience_data as $expre) {
+            ?>
           <div class="cv_exp_box">
             <h2>01</h2>
             <div class="cv_exp_com">
               <span>
-                <h3>Junior UI/UX Designer</h3>
-                <h5>- <a href="#">Ethinos Digital Marketing Pvt. Ltd.</a></h5>
+                <h3><?=$expre->work_type?></h3>
+                <h5>- <a href="<?=$expre->website_url?>"><?=$expre->organisation_name?></a></h5>
               </span>
-              <h5>(2014-Till Now)</h5>
+              <h5>(<?=$expre->work_from?>-<?=$expre->work_to?>)</h5>
             </div>
           </div>
-          <div class="cv_exp_box">
-            <h2>02</h2>
-            <div class="cv_exp_com">
-              <span>
-                <h3>Junior UI/UX Designer</h3>
-                <h5>- <a href="#">Ethinos Digital Marketing Pvt. Ltd.</a></h5>
-              </span>
-              <h5>(2014-2015)</h5>
-            </div>
-          </div>
-          <div class="cv_exp_box">
-            <h2>03</h2>
-            <div class="cv_exp_com">
-              <span>
-                <h3>Junior UI/UX Designer</h3>
-                <h5>- <a href="#">Ethinos Digital Marketing Pvt. Ltd.</a></h5>
-              </span>
-              <h5>(2014-2015)</h5>
-            </div>
-          </div>
+          <?php }?>
         </div>
       </div>
     </div>
   </section>
   <!--======== Experience Section End=========== -->
+  <?php }?>
   <!--======== Do Section Start================= -->
       <div class="cv_do_wrapper">
         <div class="cv_container container">
@@ -266,7 +242,9 @@
         </div>
       </div>
   <!--=========== Do Section End============ -->
-
+  <?php
+if($user_data->is_skill==1){
+?>
   <!--======== Skill Section Start======= -->
     <section class="cv_skill_wrapper">
       <div class="cv_container container">
@@ -279,12 +257,15 @@
           </div>
           <div class="col-xl-12">
           <div class="row">
+          <?php
+            foreach ($skills_data as $skill) {
+            ?>
           <div class="col-md-6">
             <div class="cv_skill_box">
               <div class="cv_skill_progress">
                 <div class="cv_skill_text">
-                  <h4>Figma</h4>
-                  <p>50%</p>
+                  <h4><?=$skill->skill?></h4>
+                  <p><?=$skill->percantage?>%</p>
                 </div>
                 <div class="cv_skill_bar">
                   <div class="progress">
@@ -294,87 +275,17 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="cv_skill_box">
-              <div class="cv_skill_progress">
-                <div class="cv_skill_text">
-                  <h4>Photoshop</h4>
-                  <p>95%</p>
-                </div>
-                <div class="cv_skill_bar">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="cv_skill_box">
-              <div class="cv_skill_progress">
-                <div class="cv_skill_text">
-                  <h4>Illustrator</h4>
-                  <p>95%</p>
-                </div>
-                <div class="cv_skill_bar">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="cv_skill_box">
-              <div class="cv_skill_progress">
-                <div class="cv_skill_text">
-                  <h4>After Effect</h4>
-                  <p>95%</p>
-                </div>
-                <div class="cv_skill_bar">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="cv_skill_box">
-              <div class="cv_skill_progress">
-                <div class="cv_skill_text">
-                  <h4>CorelDraw</h4>
-                  <p>95%</p>
-                </div>
-                <div class="cv_skill_bar">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="cv_skill_box">
-              <div class="cv_skill_progress">
-                <div class="cv_skill_text">
-                  <h4>Premiere Pro</h4>
-                  <p>95%</p>
-                </div>
-                <div class="cv_skill_bar">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php }?>
           </div>
           </div>
         </div>
       </div>
     </section>
     <!--======= Skill Section End ========-->
+    <?php }?>
+    <?php
+if($user_data->is_project==1){
+?>
     <!--======= Project Section Start==== -->
       <section class="cv_project_wrapper">
         <div class="cv_container container">
@@ -468,6 +379,7 @@
         </div>
       </section>
   <!--====== Project Section End ======-->
+  <?php }?>
   <!--====== Client Section Start===== -->
         <section class="cv_client_wrapper">
         <div class="cv_container container">
@@ -559,7 +471,7 @@
         </div>
       </section>
   <!--==== Address Section End===== -->
-
 <?php include_once('includes/footer.php') ?>
+
 </body>
 </html>

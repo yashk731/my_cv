@@ -1,19 +1,25 @@
+<?php
+ $user_id=$this->session->userdata('user_id');
+ $user_data= $this->db->where(['id'=>$user_id,'status'=>1])->get('tbl_users')->row();
+$name_id = $user_data->first_name . "" . $user_data->last_name . "" ."_". $user_data->id;
+
+?>
 <header>
     <div class="topbar d-flex align-items-center">
         <nav class="navbar navbar-expand gap-3">
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
                 <div class="search-bar d-lg-block ">
-                    <input type="text" class="form-control" value="www.easyprofile.com" id="copytoClipboard" title="Your Profile URL">
+                    <input type="text" class="form-control" value="<?=base_url()?>View/<?=$name_id?>" id="copytoClipboard" title="Your Profile URL">
                 </div>
                 <div class="search-bar d-lg-block">
                     <a href="#" onclick="copytoClipboard()" title="Copy URL" class="btn btn-outline-secondary"><i class="bx bx-copy"></i></a>
-                    <a href="" class="btn btn-outline-secondary" title="Run URL" target="_blank"><i class="bx bx-play"></i></a>
+                    <a href="<?=base_url()?>View/<?=$name_id?>" class="btn btn-outline-secondary" title="Run URL" target="_blank"><i class="bx bx-play"></i></a>
                 </div>
                 <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center gap-1">
                     <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
-                        <a class="nav-link" href="javascript:;"><i class='bx bx-search'></i>
+                        <a class="nav-link" href=""><i class='bx bx-search'></i>
                         </a>
                     </li>
                     <li class="nav-item dropdown dropdown-laungauge d-none d-sm-flex"></li>
@@ -50,7 +56,7 @@
                     <li>
                         <div class="dropdown-divider mb-0"></div>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center text-danger" href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
+                    <li><a class="dropdown-item d-flex align-items-center text-danger" onclick="logoutuser('<?= base_url() ?>logoutuser')"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
                     </li>
                 </ul>
             </div>
