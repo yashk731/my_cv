@@ -29,15 +29,13 @@
                             <div class="mt-3">
                             
                                 <label for="file" class="mb-2">Add Your Introduction <span class="text-danger">*</span> (Only 100 words Accepted)</label>
-                                <input type="text" name="introduction" minlength="10" maxlength="100" class="form-control" value="<?=!empty($about_data->introduction)?$about_data->introduction:""?>">
+                                <input type="text" name="introduction" minlength="10" maxlength="100" class="form-control" value="<?=!empty($about_data->introduction)?$about_data->introduction:""?>" required>
                             </div>
-                            <div id="editor" required>
-                                <textarea name="" id="">Hii Welcome</textarea>
-                            </div>
+                           
                             <div class="mt-3">
                             
                                 <label for="file" class="mb-2">Designation <span class="text-danger">*</span></label>
-                                <input type="text" name="designation" minlength="10"  class="form-control" value="<?=!empty($about_data->designation)?$about_data->designation:""?>">
+                                <input type="text" name="designation" minlength="10"  class="form-control" value="<?=!empty($about_data->designation)?$about_data->designation:""?>" required>
                             </div>
                             <div class="mt-3">
                             

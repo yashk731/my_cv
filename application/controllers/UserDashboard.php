@@ -21,6 +21,8 @@ class UserDashboard extends CI_Controller
 		$data['total_project'] = $this->UM->total_project($user_id);
 		$data['total_client'] = $this->UM->total_client($user_id);
 		$data['total_experience'] = $this->UM->total_experience($user_id);
+		$data['dashboard_data'] = $this->UM->dashboard_data($user_id);
+		
 		$user_data = $this->UM->get_user_data();
 		$data['name_id'] = $user_data->first_name . "" . $user_data->last_name . "" . $user_data->id;
 		//	$data['user_data']=$this->db->select('*')->where("CONCAT(first_name,last_name,id)",$name_id)->get('tbl_users')->row();
@@ -31,7 +33,8 @@ class UserDashboard extends CI_Controller
 	public function aboutUs()
 	{
 
-		$data['about_data'] = $this->UM->get_aboutus();
+		$user_id=$this->session->userdata('user_id');
+		$data['about_data'] = $this->UM->get_aboutus_data($user_id);
 		$data['user_data'] = $this->UM->get_user_data();
 		$this->load->view('user/dashboard/aboutUs', $data);
 	}
@@ -297,11 +300,11 @@ class UserDashboard extends CI_Controller
 	}
 	public function about_us()
     {
-    
+   // print_r($_FILES);exit;
             $user_id = $this->session->userdata('user_id');
             $file = $_FILES["user_cv"];
             $MyFileName = "";
-            $userdata = $this->UM->get_aboutus_data();
+            $userdata = $this->UM->get_aboutus_data($user_id);
             if (!empty($userdata) && isset($userdata->cv)) {
                 $previous_cv_path =$userdata->cv;
                 if (file_exists($previous_cv_path)) {
@@ -312,7 +315,7 @@ class UserDashboard extends CI_Controller
                 $image = $file["name"];
                 $config['upload_path'] = './assets/upload/CV';
                 $config['allowed_types'] = 'pdf';
-                $config['max_size'] = '1024';  // Size in KB
+                //$config['max_size'] = '1024';  // Size in KB
                 $config['file_name'] = $image;
                 $this->load->library("upload", $config);
                 $filestatus = $this->upload->do_upload('user_cv');
@@ -322,6 +325,7 @@ class UserDashboard extends CI_Controller
 
                 } else {
                     $error = array('error' => $this->upload->display_errors());
+					//print_r($error );exit;
                     $result = $error;
                 }
             }
@@ -331,7 +335,7 @@ class UserDashboard extends CI_Controller
 			$array['designation'] = $this->input->post('designation');
 			$array['carrier_objective'] = $this->input->post('carrier_objective');
             $array['user_id'] = $user_id;
-            $userdata = $this->UM->get_aboutus_data();
+            $userdata = $this->UM->get_aboutus_data($user_id);
             if (!empty($userdata)) {
                 $response = $this->db->where('user_id', $user_id)->update('tbl_about', $array);
             } else {
@@ -631,6 +635,65 @@ class UserDashboard extends CI_Controller
 					// Redirect or show error message as needed
 				}
 			}
+			public function update_dashboard_status(){
+				$user_id=$this->session->userdata('user_id');
+            if($this->input->post('total_experience')){
+            $value=$this->input->post('total_experience');
+			$key='total_experience';
+			}elseif($this->input->post('total_project')){
+				$value=$this->input->post('total_project');
+				$key='total_project';
+			}elseif($this->input->post('total_client')){
+				$value=$this->input->post('total_client');
+				$key='total_client';
+			}
+			
+			$array=array(
+				$key=>$value,
+				'user_id'=>$user_id
+			);
+			$user_data=$this->db->where('user_id',$user_id)->get('tbl_dashboard')->row();
+			if(!empty($user_data)){
+			$response=$this->db->where('user_id',$user_id)->update('tbl_dashboard',$array);
+			}else{
+				$response=$this->db->insert('tbl_dashboard',$array);
+			}
+
+			if ($response) {
+				$this->session->set_flashdata('success', '<script>
+				$(document).ready(function(){
+				Swal.fire({
+					icon: "success",
+					title: "Success",
+					text: "You data save successfully!",
+				});
+			});
+			</script>');
+			} else {
+				$this->session->set_flashdata('success', '<script>
+				$(document).ready(function(){
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Something went wrong!",
+				});
+			});
+			</script>');
+			}
+			redirect(base_url() . "UserDashboard/dashboard");
+			}
+			public function change_dashboard_status(){
+				$status=$this->input->post('status');
+				$key=$this->input->post('key');
+				$user_id=$this->session->userdata('user_id');
+				$response=$this->db->where(['id'=>$user_id])->update('tbl_dashboard',array($key=>$status));
+				if($response){
+					echo 1;
+				}else{
+					echo 0;
+				}
+			}
+		   
 }
 
-
+   

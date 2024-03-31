@@ -23,19 +23,20 @@
                 <div class="col-md-4">
                         <div class="card bdr-white">
                             <div class="card-body">
-                                <form action="" >
+                                <form action="<?=base_url()?>UserDashboard/update_dashboard_status"  method="post">
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h6 class="mb-0 text-uppercase">Total Experiance</h6>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-check form-switch text-end">
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                                <input class="form-check-input" type="checkbox" <?=$dashboard_data->is_experience==1?'checked':""?>  id="flexSwitchCheckChecked" onchange="change_dashboard_status(this,'is_experience','<?=$dashboard_data->total_experience?>')">
                                             </div>
                                         </div>
                                     </div><hr/>
-                                    <input type="text" class="form-control"  value="<?=$total_experience?>"placeholder="Example : 3 years" required readonly>
-                                    <button class="btn btn-outline-secondary mt-3" style="float: right;">Save</button>
+                                    <input type="hidden" class="form-control"  name="experience">
+                                    <input type="text" class="form-control"  placeholder="Example : 3 years" required name="total_experience" value="<?=isset($dashboard_data->total_experience)?$dashboard_data->total_experience:""?>">
+                                    <button  type="submit" class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_experience)?'Update':'Save'?></button>
                                 </form>
                             </div>
                         </div>
@@ -43,19 +44,20 @@
                     <div class="col-md-4">
                         <div class="card bdr-white">
                             <div class="card-body">
-                                <form action="" >
+                            <form action="<?=base_url()?>UserDashboard/update_dashboard_status"  method="post">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <h6 class="mb-0 text-uppercase">Total Projects</h6>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-check form-switch text-end">
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                                            <input  class="form-check-input" type="checkbox" <?=$dashboard_data->is_project==1?'checked':""?>  id="flexSwitchCheckChecked" onchange="change_dashboard_status(this,'is_project','<?=$dashboard_data->total_project?>')">
                                             </div>
                                         </div>
                                     </div><hr/>
-                                    <input type="text" class="form-control" value="<?=$total_project?>" placeholder="Example : 3" required readonly>
-                                    <button class="btn btn-outline-secondary mt-3" style="float: right;">Save</button>
+                                
+                                    <input type="text" class="form-control"  placeholder="Example : 3 years" required name="total_project" value="<?=isset($dashboard_data->total_project)?$dashboard_data->total_project:""?>">
+                                    <button class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_project)?'Update':'Save'?></button>
                                 </form>
                             </div>
                         </div>
@@ -63,19 +65,20 @@
                     <div class="col-md-4">
                         <div class="card bdr-white">
                             <div class="card-body">
-                                <form action="" >
+                            <form action="<?=base_url()?>UserDashboard/update_dashboard_status"  method="post">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <h6 class="mb-0 text-uppercase">Total Clients</h6>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-check form-switch text-end">
-                                                <input class="form-check-input"   type="checkbox" id="flexSwitchCheckChecked">
+                                            <input class="form-check-input" type="checkbox" <?=$dashboard_data->is_client==1?'checked':""?>  id="flexSwitchCheckChecked" onchange="change_dashboard_status(this,'is_client','<?=$dashboard_data->total_client?>')">
                                             </div>
                                         </div>
                                     </div><hr/>
-                                    <input type="text" class="form-control" value="<?=$total_client?>" required readonly>
-                                    <button class="btn btn-outline-secondary mt-3" style="float: right;">Save</button>
+                                    <input type="text" class="form-control" required  name="total_client" value="<?=isset($dashboard_data->total_client)?$dashboard_data->total_client:""?>">
+
+                                    <button class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_client)?'Update':'Save'?></button>
                                 </form>
                             </div>
                         </div>

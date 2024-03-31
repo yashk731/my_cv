@@ -100,4 +100,50 @@
 					});
 
 		}
+
+		function change_dashboard_status(val,key,data){
+			
+			var checkboxValue = val.checked;
+			if(checkboxValue==true){
+				var status=1;
+			}else{
+				var status=0;
+			}
+			if(data==1 || data=="" )
+			{
+				Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Firstly Add Data",
+                                });
+			}else{
+                    $.ajax({
+                        type: "POST",
+                        url: "<?= base_url()?>/UserDashboard/change_dashboard_status",
+                        data: {
+                            status: status,
+                            key: key
+                        },
+                        success: function (response) {
+							if(response==1)
+							{
+								Swal.fire({
+								title: "Success!",
+								text: " Status Change Successfully!",
+								icon: "success",
+								});
+								
+                            } else {
+								Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: "Something Went Wrong",
+                                });
+							}
+							
+							
+						}
+					});
+				}
+		}
 	</script>

@@ -11,20 +11,35 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="cv_banner_text text-center">
+            <?php
+            if(!empty($aboutus_data->designation))
+            {
+            ?>
             <h5><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h5>
+            <?php }?>
             <h1>Hello! <span><img src="<?=base_url()?>assets/images/hand.svg" class="img-fluid"></span> I Am</h1>
             <h1 class="cv_profile_name"></h1>
           
             <a href="#contactUs" class="btn btn-primary w-10 text-center">Contact Us</a>
           </div>
+          <?php
+          if(!empty($aboutus_data->designation) && !empty($aboutus_data->carrier_objective))
+          {
+          ?>
           <div class="cv_banner_box text-left mb-4">
             <h4><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h4>
             <p><?=!empty($aboutus_data->carrier_objective)?$aboutus_data->carrier_objective:""?></p>
           </div>
+          <?php }?>
+
         </div>
       </div>
     </div>
   </div>
+  <?php
+  if(!empty($about_data->image) && !empty($aboutus_data->introduction) && !empty($about_data->cv))
+  {
+  ?>
   <!--========== About Section Start============= -->
   <div class="cv_about_wrapper">
     <div class="cv_container container  ">
@@ -63,47 +78,70 @@
     </div>
   </div>
   <!--============= About Section End================== -->
+<?php }?>
+
+<?php
+if(!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_project) || !empty($dashboard_data->total_client))
+{
+  if (!empty($dashboard_data->total_experience) && !empty($dashboard_data->total_project) && !empty($dashboard_data->total_client)) {
+    $class = 'col-sm-4 col-sm-6';
+} elseif (!empty($dashboard_data->total_experience) && !empty($dashboard_data->total_project) || 
+    !empty($dashboard_data->total_experience) && !empty($dashboard_data->total_client) || 
+    !empty($dashboard_data->total_project) && !empty($dashboard_data->total_client)) {
+    $class = 'col-sm-6 col-sm-6';
+} elseif (!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_project) || !empty($dashboard_data->total_client)) {
+    $class = 'col-sm-12 col-sm-6';
+} else {
+    // Handle case when no data is present
+}
+
+?>
     <!--=========== Award Section Start======= -->
     <section class="cv_award_wrapper">
         <div class="container">
           <div class="row justify-content-center">
+
           <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
                   <img src="<?=base_url()?>assets/images/award-3.svg">
                 </div>
                 <div class="cv_award_text">
-                  <h1 class="timer" data-from="0" data-to="<?=$total_experience?>" data-speed="2000"></h1>
+                  <h1 class="timer" data-from="0" data-to="<?=$dashboard_data->total_experience?>" data-speed="2000"></h1>
                   <h4>Years of Experience</h4>
                 </div>
               </div>
             </div>
+            
             <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
                   <img src="<?=base_url()?>assets/images/award-1.svg">
                 </div>
                 <div class="cv_award_text">
-                  <h1><span class="timer" data-from="0" data-to="<?=$total_client?>" data-speed="2000"></span></h1>
+                  <h1><span class="timer" data-from="0" data-to="<?=$dashboard_data->total_client?>" data-speed="2000"></span></h1>
                   <h4>Happy Clients</h4>
                 </div>
               </div>
             </div>
+
             <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
                   <img src="<?=base_url()?>assets/images/award-2.svg">
                 </div>
                 <div class="cv_award_text">
-                  <h1 class="timer" data-from="0" data-to="<?=$total_project?>" data-speed="2000"></h1>
+                  <h1 class="timer" data-from="0" data-to="<?=$dashboard_data->total_project?>" data-speed="2000"></h1>
                   <h4>Project Done</h4>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
   <!--======== Award Section End========= -->
+  <?php }?>
 <?php
 if($user_data->is_education==1){
 ?>
@@ -177,8 +215,9 @@ if($user_data->is_experience==1){
   </section>
   <!--======== Experience Section End=========== -->
   <?php }?>
+
   <!--======== Do Section Start================= -->
-      <div class="cv_do_wrapper">
+      <div class="cv_do_wrapper" style="display:none;">
         <div class="cv_container container">
           <div class="row align-items-center">
             <div class="col-xl-4">

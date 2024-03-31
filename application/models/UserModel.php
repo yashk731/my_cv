@@ -97,6 +97,13 @@ public function get_aboutus()
     $userdata=  $this->db->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
     return   $userdata;
   }
+  public function dashboard_data($user_id) 
+  {
+   
+    $userdata=  $this->db->where(['user_id'=>$user_id])->get('tbl_dashboard')->row();
+    return   $userdata;
+  }
+  
 
 
 }
