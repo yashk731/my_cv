@@ -23,11 +23,11 @@
             <a href="#contactUs" class="btn btn-primary w-10 text-center">Contact Us</a>
           </div>
           <?php
-          if(!empty($aboutus_data->designation) && !empty($aboutus_data->carrier_objective))
+          if(!empty($aboutus_data->carrier_objective))
           {
           ?>
           <div class="cv_banner_box text-left mb-4">
-            <h4><?=!empty($aboutus_data->designation)?$aboutus_data->designation:""?></h4>
+            <h4>Carrier Objective</h4>
             <p><?=!empty($aboutus_data->carrier_objective)?$aboutus_data->carrier_objective:""?></p>
           </div>
           <?php }?>

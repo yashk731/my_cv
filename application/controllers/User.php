@@ -95,143 +95,12 @@ class User extends CI_Controller
             echo 0;
         }
     }
-    public function save_client()
-{
-    $data = [];
-    if (!empty($_FILES['client_data']["name"])) {
-        $this->load->library('upload');
-        $config['upload_path'] = './assets/upload/logos';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        $config['max_size'] = '5000';
-        // $config['encrypt_name'] = TRUE;
-        $files = $_FILES['client_data'];
-        foreach ($files['name'] as $key => $image) {
-            if (empty($files['name'][$key]))
-                break;
-            $_FILES['temp_file']['name'] = $files['name'][$key];
-            $_FILES['temp_file']['type'] = $files['type'][$key];
-            $_FILES['temp_file']['tmp_name'] = $files['tmp_name'][$key];
-            $_FILES['temp_file']['error'] = $files['error'][$key];
-            $_FILES['temp_file']['size'] = $files['size'][$key];
-            $config['file_name'] = '___dfdf'.rand();
-            $this->upload->initialize($config);
-            if (!$this->upload->do_upload('temp_file')) {
-                $error_file[$key] = $this->upload->display_errors();
-            } else {
-                $upload_data = $this->upload->data();
-            }
-            if (!empty($upload_data["file_name"])) {
-                $fileName = $upload_data["file_name"];
-                $images[] = $fileName;
-                $title[$key] = 'jkhjk';//$amenities_title[$key];
-                $ntitle[] = $title[$key];
-            }
-           
-        }
-    }
-    
-      echo "<pre>";
-      print_r($_FILES);
-      die();
-    // Process each uploaded file
-    foreach ($_FILES['client_data']['name'] as $key => $file_name) {
-       
-        // die();
-        // Check if file is uploaded
-        if (!empty($file_name)) {
-            $url = $this->input->post('url')[$key] ?: '';
-            // Set up file upload configuration
-            $config['upload_path'] = './assets/upload/logos/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif';
-          //  $config['max_size'] = 5000; // in KB
-            $config['file_name'] = $file_name;
-            print_r($key);
-                die();
 
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload('logo['.$key.']')) { 
-                
-                $upload_data = $this->upload->data();
-                $filename = $upload_data['file_name'];
-                
-                $data[] = ['logo' => $filename, 'url' => $url];
-            } else {
-                // Handle upload errors if any
-                $upload_error = $this->upload->display_errors();
-                echo $upload_error;
-            }
-        }
-    }
-    // Insert data into the database
-    if (!empty($data)) {
-        $this->db->insert_batch('tbl_client', $data);
-    }
-    // Print or process data after insertion
-    echo "<pre>";
-    print_r($data);
-    die();
-}
 
     // Redirect or display success message
     
 
-    public function save_client_()
-    {
-        echo "<pre>";
-        print_r($_FILES);
-        print_r($_POST);
-        exit;
-        $client_data = $this->input->post('client_data');
-        foreach ($client_data as $row) {
-            $data['url'] = $row['url'];
-            $file = $_FILES["logo"];
-            $MyFileName = "";
-            if (strlen($file['name']) > 0) {
-                $image = $file["name"];
-                $config['upload_path'] = './assets/upload/CV';
-                $config['allowed_types'] = 'jpg|png|jpeg';
-                $config['max_size'] = '1024';  // Size in KB
-                $config['file_name'] = $image;
-                $this->load->library("upload", $config);
-                $filestatus = $this->upload->do_upload('logo');
-                if ($filestatus == true) {
-                    $MyFileName = $this->upload->data('file_name');
-                    $data['logo'] = "assets/upload/CV/" . $MyFileName;
-
-                } else {
-                    $error = array('error' => $this->upload->display_errors());
-                    //exit;
-                    $result = $error;
-                }
-            }
-            //End: File upload code
-            $response = $this->db->insert('tbl_client', $data);
-        }
-        if ($response) {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: "You data save successfully!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/clients");
-        } else {
-            $this->session->set_flashdata('success', '<script>
-                $(document).ready(function(){
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            });
-            </script>');
-            redirect(base_url() . "UserDashboard/clients");
-        }
-
-    }
+   
     public function save_user_img(){
 
         //to start image validation
@@ -334,5 +203,6 @@ class User extends CI_Controller
         }
     }
    
+     
    
 }

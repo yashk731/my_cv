@@ -42,15 +42,16 @@
                                 foreach($client_data as $key=>$row)
                                {
                                ?>
+
                             <div class="items">
-                           
+                           <input type="hidden"  name="delete_id[]" class="form-control" value="<?=$row->id?>">
                                 <!-- Repeater Content -->
                                 <div class="row item-content">
                                 <input type="hidden" name="id[]" value="<?=$row->id?>">
                                     <div class="col-md-12 mb-3">
-                                        <label for="logo" class="form-label">Upload Logo of Your Clients<span
+                                        <!-- <label for="logo" class="form-label">Upload Logo of Your Clients<span
                                                 class="text-danger">* </span>(Logo must be in 170 × 103 px)</label>
-                                        <input type="file" name="logo[]" class="form-control" accept="image/*"  >
+                                        <input type="file" name="logo[]" class="form-control" accept="image/*"  > -->
                                         
                                         <input type="hidden" name="existing_logo[]" value="<?=$row->logo?>">
                                         <img src="<?= base_url('assets/upload/logo/' . $row->logo) ?>" alt="Existing Logo" width="170" height="103">
@@ -60,7 +61,7 @@
                                     <div class="col-md-12 mb-3">
                                         <label for="url" class="form-label">Client's Website URL<span
                                                 class="text-danger">*</span></label>
-                                        <input name="url[]" type="url" value="<?=$row->url?>" class="form-control">
+                                        <input name="url[]" type="url" value="<?=$row->url?>" class="form-control" readonly>
                                     </div>
                                 </div>
                                    <!-- Repeater Remove Btn -->

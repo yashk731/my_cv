@@ -56,32 +56,32 @@
                         </ul>
                         <div class="tab-content" id="pills-tabContent" >
                             <div class="tab-pane fade show active" id="pills-addProject" role="tabpanel">
-                                <form action="<?=base_url()?>UserDashboard/add_project" method="post" enctype= multipart/form-data>
+                                <form id="yourFormId" method="post" enctype= multipart/form-data>
                                     <div class="items" data-group="test">
                                         <!-- Repeater Content -->
                                         <div class="row item-content">
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project Name<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Enter Project Name" required name="project_name">
+                                                <input type="text" class="form-control" placeholder="Enter Project Name" required  id="project_name" name="project_name">
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project URL</label>
-                                                <input type="url" name="project_url" class="form-control" placeholder="Enter Project URL" >
+                                                <input type="url" name="project_url" class="form-control" id="project_url" placeholder="Enter Project URL" >
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Your Working Role <span class="text-danger">*</span></label>
-                                                <input type="text" name="working_role"  class="form-control" placeholder="Example : Project Manager" required>
+                                                <input type="text" name="working_role"  class="form-control" id="working_role" placeholder="Example : Project Manager" required>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Upload Feature Image<span class="text-danger">*</span> (Image must be in 330 × 192 px )</label>
-                                                <input class="form-control" type="file" id="" name="faeture_image" accept="image/*"  required>
+                                                <input class="form-control" type="file" id="faeture_image" name="faeture_image" accept="image/*"  required>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project Description<span class="text-danger">*</span> (Max 40 words Accepted)</label>
                                                 <textarea class="form-control" name="description" aria-label="With textarea" style="height: 110px;" required></textarea>
                                             </div>
                                             <div class="col-md-12 text-end">
-                                                <button type="submit" class="btn btn-outline-secondary w-25">Save</button>
+                                                <button type="submit" class="btn btn-outline-secondary w-25" id="submitButton">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -197,6 +197,42 @@
                 }
             });
             }
+        }
+        $(document).ready(function(){
+    // Attach click event handler to the button
+    $('#yourFormId').submit(function(e){
+        e.preventDefault(); // Prevent default form submission
+        
+       
+    });
+});
+        
+$('#submitButton').click(function(){
+  
+        submitForm();
+    });
+
+      function submitForm(){
+       
+      //  var nextTabId = '#pills-viewProject'; 
+            
+            var formData = new FormData($('#yourFormId')[0]); 
+            $.ajax({
+                url: '<?= base_url() ?>UserDashboard/add_project',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response){
+                    alert(response);
+                    if(response==1){
+                    $('#pills-viewProject').tab('show');
+                    }
+                },
+                error: function(xhr, status, error){
+                    console.error(xhr.responseText);
+                }
+            });
         }
 </script>
 <?php include_once('includes/footer.php') ?>
