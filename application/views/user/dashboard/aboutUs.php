@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-md-6 ">
                                 <div class="form-check form-switch text-end">
-                                    <input class="form-check-input" type="checkbox" <?=$user_data->is_about_us==1?'checked':""?> id="flexSwitchCheckChecked" onchange="change_status(this,'is_about_us')">
+                                    <input class="form-check-input" type="checkbox" <?=$user_data->is_about_us==1?'checked':""?> id="flexSwitchCheckChecked" onchange="change_status(this,'is_about_us','<?=$about_count?>')">
                                 </div>
                             </div>
                         </div><hr/>
@@ -40,7 +40,7 @@
                             <div class="mt-3">
                             
                             <label for="file" class="mb-2">Carrier Objective <span class="text-danger">*</span></label>
-                            <textarea class="form-control" name="carrier_objective" aria-label="With textarea" style="height: 110px;" required><?=$about_data->carrier_objective?></textarea>
+                            <textarea class="form-control" name="carrier_objective" aria-label="With textarea" style="height: 110px;" required><?=!empty($about_data->carrier_objective)?$about_data->carrier_objective:""?></textarea>
                         </div>
                             
 

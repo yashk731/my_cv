@@ -194,15 +194,13 @@ class User extends CI_Controller
     public function ChangeStatus(){
         $status=$this->input->post('status');
         $key=$this->input->post('key');
-        $user_id=$this->session->userdata('user_id');
-        $response=$this->db->where(['id'=>$user_id])->update('tbl_users',array($key=>$status));
-        if($response){
-            echo 1;
-        }else{
-            echo 0;
-        }
+        $user_id=$this->session->userdata('user_id');          
+        $response = $this->db->where(['id'=>$user_id])->update('tbl_users', array($key=>$status));
+        echo $response ? 1 : 0;
+            }
+        
     }
    
      
    
-}
+

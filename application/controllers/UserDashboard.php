@@ -36,36 +36,46 @@ class UserDashboard extends CI_Controller
 		$user_id=$this->session->userdata('user_id');
 		$data['about_data'] = $this->UM->get_aboutus_data($user_id);
 		$data['user_data'] = $this->UM->get_user_data();
+		$data['about_count']=$this->db->where(['user_id'=>$user_id])->get('tbl_about')->num_rows();
 		$this->load->view('user/dashboard/aboutUs', $data);
 	}
 	public function education()
 	{
+		$user_id=$this->session->userdata('user_id');
 		$data['user_data'] = $this->UM->get_user_data();
 		$data['education_data'] = $this->UM->get_education_data();
+		$data['education_count']=$this->db->where(['user_id'=>$user_id])->get('tbl_qualification')->num_rows();
 		$this->load->view('user/dashboard/education', $data);
 	}
 	public function experience()
 	{
+		$user_id=$this->session->userdata('user_id');
 		$data['user_data'] = $this->UM->get_user_data();
 		$data['experience_data'] = $this->UM->get_experience_data();
+		$data['experience_count']=$this->db->where(['user_id'=>$user_id])->get('tbl_experience')->num_rows();
 		$this->load->view('user/dashboard/experience', $data);
 	}
 	public function skills()
 	{
+		$user_id=$this->session->userdata('user_id');
 		$data['user_data'] = $this->UM->get_user_data();
 		$data['skills_data'] = $this->UM->get_skill_data();
+		$data['skills_count']=$this->db->where(['user_id'=>$user_id])->get('tbl_skills')->num_rows();
 		$this->load->view('user/dashboard/skills', $data);
 	}
 	public function projects()
 	{
+		$user_id=$this->session->userdata('user_id');
 		$data['user_data'] = $this->UM->get_user_data();
 		$data['project_data'] = $this->UM->getTotalProjectData();
 		$this->load->view('user/dashboard/projects', $data);
 	}
 	public function clients()
 	{
+		$user_id=$this->session->userdata('user_id');
 		$data['user_data'] = $this->UM->get_user_data();
 		$data['client_data'] = $this->UM->get_client_data();
+		$data['client_count']=$this->db->where(['user_id'=>$user_id])->get('tbl_client')->num_rows();
 		$this->load->view('user/dashboard/clients',$data);
 	}
 

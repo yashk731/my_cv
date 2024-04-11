@@ -40,7 +40,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="tab-icon"><i class='bx bx-list-ul font-18 me-1'></i>
                                         </div>
-                                        <div class="tab-title">View Projects</div>
+                                        <div class="tab-title" id="view_project">View Projects</div>
                                     </div>
                                 </a>
                             </li>
@@ -208,14 +208,9 @@
 });
         
 $('#submitButton').click(function(){
-  
         submitForm();
     });
-
-      function submitForm(){
-       
-      //  var nextTabId = '#pills-viewProject'; 
-            
+      function submitForm(){     
             var formData = new FormData($('#yourFormId')[0]); 
             $.ajax({
                 url: '<?= base_url() ?>UserDashboard/add_project',
@@ -226,7 +221,7 @@ $('#submitButton').click(function(){
                 success: function(response){
                     alert(response);
                     if(response==1){
-                    $('#pills-viewProject').tab('show');
+                        $("#view_project").click();
                     }
                 },
                 error: function(xhr, status, error){

@@ -67,39 +67,56 @@
 		// Alert the copied text
 		alert("URL Copied");
 		}
-		function change_status(val,key){
-			var checkboxValue = val.checked;
-			if(checkboxValue==true){
-				var status=1;
-			}else{
-				var status=0;
-			}
-                    $.ajax({
-                        type: "POST",
-                        url: "<?= base_url()?>/User/ChangeStatus",
-                        data: {
-                            status: status,
-                            key: key
-                        },
-                        success: function (response) {
-							if(response==1)
-							{
-								Swal.fire({
-								title: "Success!",
-								text: " Status Change Successfully!",
-								icon: "success",
-								});
-                            } else{
-                                Swal.fire({
-                                    icon: "error",
-                                    title: "Oops...",
-                                    text: "Invalid Id and Password",
-                                });
-                            } 
-						}
-					});
+		function change_status(val, key, data) {
+    var checkboxValue = val.checked;
+    var status = checkboxValue ? 1 : 0;
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to change the status.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, change it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Check if data is not 0 or not empty (depending on what data represents)
+            if (data == 0 || data == "") {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Firstly Add Data",
+                });
+            } else {
+                // Proceed with the status change
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url() ?>/User/ChangeStatus",
+                    data: {
+                        status: status,
+                        key: key
+                    },
+                    success: function (response) {
+                        if (response == 1) {
+                            Swal.fire({
+                                title: "Success!",
+                                text: "Status Change Successfully!",
+                                icon: "success",
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Invalid Id and Password",
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    });
+}
 
-		}
 
 		function change_dashboard_status(val,key,data){
 			
