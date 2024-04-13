@@ -1,8 +1,9 @@
 <?php
- $user_id=$this->session->userdata('user_id');
- $user_data= $this->db->where(['id'=>$user_id,'status'=>1])->get('tbl_users')->row();
+$user_id=$this->session->userdata('user_id');
+$user_data= $this->db->where(['id'=>$user_id,'status'=>1])->get('tbl_users')->row();
 $name_id = $user_data->first_name . "" . $user_data->last_name . "" ."_". $user_data->id;
-
+$image_data=$this->db->select('image')->where(['user_id'=>$user_id,'status'=>1])->get('tbl_user_image')->row();
+$about_data=$this->db->select('designation')->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
 ?>
 <header>
     <div class="topbar d-flex align-items-center">
@@ -42,10 +43,16 @@ $name_id = $user_data->first_name . "" . $user_data->last_name . "" ."_". $user_
             </div>
             <div class="user-box dropdown px-3">
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="<?=base_url()?>admin-assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                <?php
+                    if(empty($image_data)){
+                    ?>
+                   <img src="<?=base_url()?>admin-assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                    <?php }else{?>
+                    <img src="<?=base_url()?>assets/upload/user_Images/<?=$image_data->image?>" class="user-img" alt="user avatar">
+                    <?php }?>
                     <div class="user-info">
-                        <p class="user-name mb-0">Pauline Seitz</p>
-                        <p class="designattion mb-0">Web Designer</p>
+                        <p class="user-name mb-0"><?=$this->session->userdata('user_name')?></p>
+                        <p class="designattion mb-0"><?=!empty($about_data->designation)?$about_data->designation:""?></p>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">

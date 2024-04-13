@@ -87,6 +87,10 @@
                     title: "Oops...",
                     text: "Firstly Add Data",
                 });
+				setTimeout(function(){
+					window.location.reload();
+				},2000);
+				
             } else {
                 // Proceed with the status change
                 $.ajax({
@@ -126,13 +130,16 @@
 			}else{
 				var status=0;
 			}
-			if(data==1 || data=="" )
+			if(data==0 || data=="" )
 			{
 				Swal.fire({
 							icon: "error",
 							title: "Oops...",
 							text: "Firstly Add Data",
                                 });
+								setTimeout(function(){
+					window.location.reload();
+				},2000);
 			}else{
                     $.ajax({
                         type: "POST",
@@ -149,7 +156,9 @@
 								text: " Status Change Successfully!",
 								icon: "success",
 								});
-								
+								setTimeout(function(){
+								window.location.reload();
+								},2000);
                             } else {
 								Swal.fire({
                                     icon: "error",
@@ -163,4 +172,12 @@
 					});
 				}
 		}
+		function onlyAlphabets(charCode) {
+			var charCode = event.which || event.keyCode;
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode === 32) {
+        return true;
+    } else {
+        return false;
+    }
+}
 	</script>

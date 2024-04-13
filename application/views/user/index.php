@@ -420,6 +420,9 @@ if($user_data->is_project==1){
   <!--====== Project Section End ======-->
   <?php }?>
   <!--====== Client Section Start===== -->
+  <?php
+if($user_data->is_client==1){
+?>
         <section class="cv_client_wrapper">
         <div class="cv_container container">
           <div class="row align-items-center">
@@ -430,36 +433,21 @@ if($user_data->is_project==1){
               </div>
             </div>
             <div class="col-xl-12">
-              <div class="cv_client_box">
+            <div class="cv_client_box">
+                <?php
+                foreach($client_data as $client){
+                ?>
+                 
                 <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-1.png">
+                 <a href="<?=$client->url?>" target="_blank"> <img src="<?=base_url()?>assets/upload/logo/<?=$client->logo?>" height="100px" width="60px"></a>
                 </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-2.png">
-                </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-3.png">
-                </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-3.png">
-                </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-3.png">
-                </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-3.png">
-                </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-3.png">
-                </div>
-                <div class="cv_client_img">
-                  <img src="<?=base_url()?>assets/images/client-3.png">
-                </div>
-              </div>
+<?php }?>
+</div>
             </div>
           </div>
         </div>
       </section>
+      <?php }?>
   <!--==== Client Section End ======-->
   <!--==== Contact Section Start=== -->
     <section class="cv_address_wrapper">
@@ -478,8 +466,8 @@ if($user_data->is_project==1){
                 </div>
                 <div class="cv_address_text">
                   <h5>Phone</h5>
-                  <a href="javascript:void(0);">+1-202-555-0125</a>
-                  <a href="javascript:void(0);">01-202-555-0125</a>
+                  <a href="javascript:void(0);"><?=isset($contact_data->mobile)?$contact_data->mobile:""?></a>
+                 
                 </div>
               </div>
             </div>
@@ -490,8 +478,7 @@ if($user_data->is_project==1){
                 </div>
                 <div class="cv_address_text">
                   <h5>Email</h5>
-                  <a href="javascript:void(0);">example@gmail.com</a>
-                  <a href="javascript:void(0);">yourname@gmail.com</a>
+                  <a href="javascript:void(0);"><?=isset($contact_data->email_id)?$contact_data->email_id:""?></a>        
                 </div>
               </div>
             </div>
@@ -502,7 +489,7 @@ if($user_data->is_project==1){
                 </div>
                 <div class="cv_address_text">
                   <h5>Address</h5>
-                  <a href="javascript:void(0);">71 Pilgrim Avenue Chevy Chase, MD 20815</a>
+                  <a href="javascript:void(0);"><?=isset($contact_data->address)?$contact_data->address:""?></a>
                 </div>
               </div>
             </div>

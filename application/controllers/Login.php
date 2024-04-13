@@ -29,6 +29,7 @@ class Login extends CI_Controller
                 $data = array(
                     'user_id' => $res->id,
                     'user_email' => $res->email_id,
+                    'user_name'=>$res->first_name.$res->last_name,
                 );
                 $this->session->set_userdata($data);
                 echo 1;

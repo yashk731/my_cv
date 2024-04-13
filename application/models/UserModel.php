@@ -104,6 +104,16 @@ public function get_aboutus()
     return   $userdata;
   }
   
+  public function get_contactus_data($user_id){
+    $result = $this->db->select('CONCAT(tbl_country.name, ", ", tbl_state.name, ", ", tbl_city.name, ", ", tbl_users.pincode) AS address,CONCAT(tbl_country.phone_code ," ",tbl_users.mobile_no) as mobile,tbl_users.email_id')
+                    ->join('tbl_country','tbl_country.id=tbl_users.country','left')
+                    ->join('tbl_state','tbl_state.id=tbl_users.state','left')
+                    ->join('tbl_city','tbl_city.id=tbl_users.city','left')
+                    ->where(['tbl_users.status'=>1,'tbl_users.id'=>$user_id])
+                    ->get('tbl_users')
+                    ->row();
+    return $result;
+}
 
 
 }

@@ -30,12 +30,12 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-check form-switch text-end">
-                                                <input class="form-check-input" type="checkbox" <?=$dashboard_data->is_experience==1?'checked':""?>  id="flexSwitchCheckChecked" onchange="change_dashboard_status(this,'is_experience','<?=$dashboard_data->total_experience?>')">
+                                                <input class="form-check-input" type="checkbox"<?=$dashboard_data->is_experience==1?'checked':""?>  id="flexSwitchCheckChecked" onchange="change_dashboard_status(this,'is_experience','<?=$dashboard_data->total_experience?>')">
                                             </div>
                                         </div>
                                     </div><hr/>
                                     <input type="hidden" class="form-control"  name="experience">
-                                    <input type="text" class="form-control"  placeholder="Example : 3 years" required name="total_experience" value="<?=isset($dashboard_data->total_experience)?$dashboard_data->total_experience:""?>">
+                                    <input type="text" class="form-control" onkeypress="onlyAlphabets(event)"  placeholder="Example : 3 years" required name="total_experience" value="<?=isset($dashboard_data->total_experience)?$dashboard_data->total_experience:""?>">
                                     <button  type="submit" class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_experience)?'Update':'Save'?></button>
                                 </form>
                             </div>
@@ -56,7 +56,7 @@
                                         </div>
                                     </div><hr/>
                                 
-                                    <input type="text" class="form-control"  placeholder="Example : 3 years" required name="total_project" value="<?=isset($dashboard_data->total_project)?$dashboard_data->total_project:""?>">
+                                    <input type="text" class="form-control"  onkeypress="return onlyAlphabets();" placeholder="Example : 3 years" required name="total_project" value="<?=isset($dashboard_data->total_project)?$dashboard_data->total_project:""?>">
                                     <button class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_project)?'Update':'Save'?></button>
                                 </form>
                             </div>
