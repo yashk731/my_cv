@@ -46,6 +46,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('email_id', 'Email ID', 'required');
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
+        $this->form_validation->set_rules('city', 'City', 'required');
         $this->form_validation->set_rules('pincode', 'Pincode', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         // Run the form validation
@@ -71,11 +72,23 @@ class User extends CI_Controller
                     'email_id' => $email,
                     'country' => $this->input->post('country'),
                     'state' => $this->input->post('state'),
+                    'city' => $this->input->post('city'),
                     'pincode' => $this->input->post('pincode'),
                     'password' => md5($this->input->post('password')),
+                    'status'=>1
                 );
                 $result = $this->db->insert('tbl_users', $insert_array);
-
+               $last_id= $this->db->insert_id();
+               $dashboard_array=array(
+                'user_id'=>$last_id,
+                'total_experience'=>0,
+                'total_client'=>0,
+                'total_project'=>0,
+                'is_experience'=>0,
+                'is_project'=>0,
+                'is_client'=>0,
+               );
+               $this->db->insert('tbl_dashboard',$dashboard_array);
                 if ($result) {
                     echo 1;
                 } else {
@@ -199,8 +212,10 @@ class User extends CI_Controller
         echo $response ? 1 : 0;
             }
         
+        
     }
    
+
      
    
 

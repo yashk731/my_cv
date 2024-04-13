@@ -492,7 +492,7 @@ class UserDashboard extends CI_Controller
 				$status=$this->input->post('status');
 				$key=$this->input->post('key');
 				$user_id=$this->session->userdata('user_id');
-				$response=$this->db->where(['id'=>$user_id])->update('tbl_dashboard',array($key=>$status));
+				$response=$this->db->where(['user_id'=>$user_id])->update('tbl_dashboard',array($key=>$status));
 				if($response){
 					echo 1;
 				}else{
@@ -501,12 +501,14 @@ class UserDashboard extends CI_Controller
 			}
 			
 
-			public function save_client(){
+			public function save_client_old(){
 				$url = $this->input->post('url');
 				$ids = $this->input->post('delete_id');
+				$old_file_name = $this->input->post('existing_logo');
+				
 				if (!empty($url)) {
 					$user_id = $this->session->userdata('user_id');
-					$data = array(); // Initialize data array
+					
 					if (!empty($ids)) {
 						$this->db->where_not_in('id', $ids)->delete('tbl_client');
 					}
@@ -515,7 +517,9 @@ class UserDashboard extends CI_Controller
 					for ($i = 0; $i < count($url); $i++) {
 						$data['url'] = $url[$i]; // Assign URL
 						$data['user_id'] = $this->session->userdata('user_id'); 
-			
+			        //   if(!empty($_FILES['existing_logo']['name'][$i]  && $ids)){
+
+					//   }
 						if (!empty($_FILES['logo']['name'][$i])) {
 							$config = array(
 								'upload_path' => './assets/upload/logo',
@@ -531,9 +535,7 @@ class UserDashboard extends CI_Controller
 								'error' => $_FILES['logo']['error'][$i],
 								'size' => $_FILES['logo']['size'][$i],
 							);
-			
 							$this->upload->initialize($config);
-			
 							if ($this->upload->do_upload('userfile')) {
 								$uploadData = $this->upload->data();
 								$data['logo'] = $uploadData['file_name']; // Assign logo filename
@@ -541,10 +543,19 @@ class UserDashboard extends CI_Controller
 								$error = $this->upload->display_errors();
 								// Handle upload errors here
 							}
+						}else {
+							// echo "<pre>";
+							// print_r($old_file_name[$i]);
+							// exit;
+							// If no new logo uploaded, keep the existing logo
+							if(isset($old_file_name[$i])) {
+								$data['logo'] = $old_file_name[$i];
+							}
 						}
 			
+			
 						// Insert data into tbl_client table
-						if (isset($ids[$i]) && !empty($ids[$i])) {
+						if (isset($ids[$i]) && !empty($ids[$i]) ) {
 							$response=	$this->db->where('id', $ids[$i])->update('tbl_client', $data);
 							} else {
 								$response=	$this->db->insert('tbl_client', $data);
@@ -574,6 +585,85 @@ class UserDashboard extends CI_Controller
 				}
 				redirect(base_url() . "UserDashboard/clients");
 			}
+			public function save_client(){
+				$url = $this->input->post('url');
+				$ids = $this->input->post('delete_id');
+				$old_file_name = $this->input->post('existing_logo');
+				if (!empty($url)) {
+					$user_id = $this->session->userdata('user_id');
+					if (!empty($ids)) {
+						$this->db->where_not_in('id', $ids)->delete('tbl_client');
+					}
+
+					foreach ($url as $key => $value) {
+						$data['url'] = $value; // Assign URL
+						$data['user_id'] = $user_id;
+			
+						// Check if there's a new logo uploaded
+						if (!empty($_FILES['logo']['name'][$key])) {
+							// Upload the new logo
+							$config = array(
+								'upload_path' => './assets/upload/logo',
+								'allowed_types' => 'jpg|gif|png|jpeg',
+								'overwrite' => 1,
+							);
+							$this->load->library('upload', $config);
+			
+							$_FILES['userfile'] = array(
+								'name' => $_FILES['logo']['name'][$key],
+								'type' => $_FILES['logo']['type'][$key],
+								'tmp_name' => $_FILES['logo']['tmp_name'][$key],
+								'error' => $_FILES['logo']['error'][$key],
+								'size' => $_FILES['logo']['size'][$key],
+							);
+							$this->upload->initialize($config);
+							if ($this->upload->do_upload('userfile')) {
+								$uploadData = $this->upload->data();
+								$data['logo'] = $uploadData['file_name']; // Assign new logo filename
+							} else {
+								$error = $this->upload->display_errors();
+								// Handle upload errors here
+							}
+						} else {
+							// If no new logo uploaded, retain the existing logo
+							if(isset($old_file_name[$key])) {
+								$update_data['logo'] = $old_file_name[$key];
+							}
+						}
+			
+						// Insert data into tbl_client table
+						if (isset($ids[$key]) && !empty($ids[$key]) ) {
+							$response=	$this->db->where('id', $ids[$key])->update('tbl_client', $update_data);
+							} else {
+								$response=	$this->db->insert('tbl_client', $data);
+							}
+						
+						if ($response) {
+							$this->session->set_flashdata('success', '<script>
+							$(document).ready(function(){
+							Swal.fire({
+								icon: "success",
+								title: "Success",
+								text: "Your data saved successfully!",
+							});
+							});
+							</script>');
+						} else {
+							$this->session->set_flashdata('success', '<script>
+							$(document).ready(function(){
+							Swal.fire({
+								icon: "error",
+								title: "Oops...",
+								text: "Something went wrong!",
+							});
+							});
+							</script>');
+						}
+					}
+				}
+				redirect(base_url() . "UserDashboard/clients");
+			}
+			
 }
 
    

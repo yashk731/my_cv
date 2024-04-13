@@ -146,19 +146,20 @@
                                     class="text-danger">*<span></label>
                             <!-- <input type="number" class="form-control" id="mobileNo" placeholder="Enter Your Mobile No." require> -->
                             <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">+91</button>
-                                <ul class="dropdown-menu">
+                                <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">+91</button> -->
+                                <select  class="btn btn-outline-secondary dropdown-toggle w-25" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <?php
                                     foreach ($countries as $country) {
                                         ?>
-                                        <li><a class="dropdown-item" href="#">
+                                        <option><a class="dropdown-item" href="#">
                                                 <?= $country->phone_code ?>
-                                            </a></li>
+                                            </a></option>
                                     <?php } ?>
                                     <li><a class="dropdown-item" href="#">+60</a></li>
                                     <li><a class="dropdown-item" href="#">+78</a></li>
-                                </ul>
+                                </select>
                                 <input type="number" class="form-control" id="mobileNo" name="mobileNo"
                                     placeholder="Enter Your Mobile No." required>
                                 <span id="mobileno_error" class="error_msg"></span>

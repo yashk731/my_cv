@@ -21,6 +21,11 @@ class Home extends CI_Controller {
 		$data['experience_data']=$this->UM->show_experience($user_id);
 		$data['skills_data']=$this->UM->show_skills($user_id);
 		$data['dashboard_data']=$this->UM->dashboard_data($user_id);
+		$data['contact_data']=$this->UM->get_contactus_data($user_id);
+		$data['client_data']=$this->UM->get_client_data($user_id);
+		// echo "<pre>";
+		// print_r($data['client_data']);
+		// exit;
 		if(!empty($data['user_data']))
 		$this->load->view('user/index',$data);
 		else

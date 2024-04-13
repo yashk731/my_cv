@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-md-6 ">
                             <div class="form-check form-switch text-end">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" onchange="change_status(this,'is_client','<?=$client_count?>')">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  <?=$user_data->is_client==1?'checked':""?> onchange="change_status(this,'is_client','<?=$client_count?>')">
                             </div>
                         </div>
                     </div>
