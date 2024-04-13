@@ -44,7 +44,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item" role="presentation" style="display:none;">
+                            <!-- <li class="nav-item" role="presentation" style="display:none;">
                                 <a class="nav-link" data-bs-toggle="pill" href="#pills-editProject" role="tab" aria-selected="false">
                                     <div class="d-flex align-items-center">
                                         <div class="tab-icon"><i class='bx bx-edit font-18 me-1'></i>
@@ -52,7 +52,7 @@
                                         <div class="tab-title">Edit Project</div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-addProject" role="tabpanel">
@@ -108,7 +108,7 @@
                                                 <td>Project Manager</td>
                                                 <td>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</td>
                                                 <td>
-                                                    <button class="btn btn-outline-success" title="Edit Project"><i class="bx bx-edit"></i></button>
+                                                    <button class="btn btn-outline-success" title="Edit Project" data-bs-toggle="modal" data-bs-target="#editProject"><i class="bx bx-edit"></i></button>
                                                     <button class="btn btn-outline-danger" title="Delete Project"><i class="bx bx-trash"></i></button>
                                                 </td>
                                             </tr>
@@ -116,10 +116,29 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="tab-pane fade show active" id="pills-editProject" role="tabpanel" style="display:none;">
+
+                            <!-- =====Edit Modal===== -->
+                            <div class="modal fade" id="editProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <!-- ==================== -->
+                            <!-- <div class="tab-pane fade show active" id="pills-editProject" role="tabpanel" style="display:none;">
                                 <form action="">
                                     <div class="items" data-group="test">
-                                        <!-- Repeater Content -->
                                         <div class="row item-content">
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project Name<span class="text-danger">*</span></label>
@@ -147,7 +166,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
 					</div>
 					</div>

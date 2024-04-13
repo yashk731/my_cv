@@ -112,7 +112,7 @@
                                         <button class="btn btn-outline-secondary mt-3 mr-3" id="btnSave" style="float: right;display:none;">Save</button>
                                         <!-- </form> -->
                                     </div>
-</form>
+                                    </form>
                                 </div>
                             </div>
                         </div>
