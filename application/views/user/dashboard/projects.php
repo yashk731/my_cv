@@ -44,7 +44,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <!-- <li class="nav-item" role="presentation">
                                 <a class="nav-link" data-bs-toggle="pill" href="#pills-editProject" role="tab" aria-selected="false">
                                     <div class="d-flex align-items-center">
                                         <div class="tab-icon"><i class='bx bx-edit font-18 me-1'></i>
@@ -52,7 +52,7 @@
                                         <div class="tab-title">Edit Project</div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content" id="pills-tabContent" >
                             <div class="tab-pane fade show active" id="pills-addProject" role="tabpanel">
@@ -126,7 +126,7 @@
                                                 <td><?=$row->description?></td>
                                                 <td>
                                    
-                                                    <button class="btn btn-outline-success " title="Edit Project" data-id="<?=$row->id?>"><i class="bx bx-edit"></i></button>
+                                                    <button class="btn btn-outline-success " title="Edit Project" data-id="<?=$row->id?>" data-bs-toggle="modal" data-bs-target="#editProject"><i class="bx bx-edit"></i></button>
                                                     <button class="btn btn-outline-success delete-btn" title="Delete Project"  onclick="delete_project(<?=$row->id?>)">Delete</button>
                                                     <!-- <a class="btn btn-outline-danger" href="<?=base_url()?>/User/delete_project/<?=$row->id?>"    onclick="return confirm('Are you sure you want to delete this Projects?');" title="Delete Project"><i class="bx bx-trash"></i>Delete</a> -->
                                                 </td>
@@ -136,10 +136,53 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="tab-pane fade show active" id="pills-editProject" role="tabpanel" style="display:none;">
+                             <!-- =====Edit Modal===== -->
+                            <div class="modal fade" id="editProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Project</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="yourFormId" method="post" enctype= multipart/form-data>
+                                                <div class="items" data-group="test">
+                                                    <!-- Repeater Content -->
+                                                    <div class="row item-content">
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="inputEmail1" class="form-label">Project Name<span class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control" placeholder="Enter Project Name" required  id="project_name" name="project_name">
+                                                        </div>
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="inputEmail1" class="form-label">Project URL</label>
+                                                            <input type="url" name="project_url" class="form-control" id="project_url" placeholder="Enter Project URL" >
+                                                        </div>
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="inputEmail1" class="form-label">Your Working Role <span class="text-danger">*</span></label>
+                                                            <input type="text" name="working_role"  class="form-control" id="working_role" placeholder="Example : Project Manager" required>
+                                                        </div>
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="inputEmail1" class="form-label">Upload Feature Image<span class="text-danger">*</span> (Image must be in 330 × 192 px )</label>
+                                                            <input class="form-control" type="file" id="faeture_image" name="faeture_image" accept="image/*"  required>
+                                                        </div>
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="inputEmail1" class="form-label">Project Description<span class="text-danger">*</span> (Max 40 words Accepted)</label>
+                                                            <textarea class="form-control" name="description" aria-label="With textarea" style="height: 110px;" required></textarea>
+                                                        </div>
+                                                        <div class="col-md-12 text-end">
+                                                            <button type="submit" class="btn btn-outline-secondary w-25" id="submitButton">Update</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ==================== -->
+                            <!-- <div class="tab-pane fade show active" id="pills-editProject" role="tabpanel" style="display:none;">
                                 <form action="">
                                     <div class="items" data-group="test">
-                                        <!-- Repeater Content -->
                                         <div class="row item-content">
                                             <div class="col-md-12 mb-3">
                                                 <label for="inputEmail1" class="form-label">Project Name<span class="text-danger">*</span></label>
@@ -167,7 +210,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
 					</div>
 					</div>

@@ -26,8 +26,8 @@
           if(!empty($aboutus_data->carrier_objective))
           {
           ?>
-          <div class="cv_banner_box text-left mb-4">
-            <h4>Carrier Objective</h4>
+          <div class="cv_banner_box text-left mb-4 ">
+            <h2>Carrier Objective</h2>
             <p><?=!empty($aboutus_data->carrier_objective)?$aboutus_data->carrier_objective:""?></p>
           </div>
           <?php }?>
@@ -101,7 +101,7 @@ if(!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_pr
         <div class="container">
           <div class="row justify-content-center">
 
-          <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
                   <img src="<?=base_url()?>assets/images/award-3.svg">
@@ -308,7 +308,7 @@ if($user_data->is_skill==1){
                 </div>
                 <div class="cv_skill_bar">
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?=$skill->percantage?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
