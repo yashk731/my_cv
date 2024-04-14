@@ -205,7 +205,7 @@ if($user_data->is_experience==1){
                 <h3><?=$expre->work_type?></h3>
                 <h5>- <a href="<?=$expre->website_url?>"><?=$expre->organisation_name?></a></h5>
               </span>
-              <h5>(<?=$expre->work_from?>-<?=$expre->work_to?>)</h5>
+              <h5>(<?=date("M-Y", strtotime($expre->work_from))?> to <?=date("M-Y",strtotime($expre->work_to))?>)</h5>
             </div>
           </div>
           <?php }?>
