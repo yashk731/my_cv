@@ -205,7 +205,7 @@ if($user_data->is_experience==1){
                 <h3><?=$expre->work_type?></h3>
                 <h5>- <a href="<?=$expre->website_url?>"><?=$expre->organisation_name?></a></h5>
               </span>
-              <h5>(<?=$expre->work_from?>-<?=$expre->work_to?>)</h5>
+              <h5>(<?=date("M-Y", strtotime($expre->work_from))?> to <?=date("M-Y",strtotime($expre->work_to))?>)</h5>
             </div>
           </div>
           <?php }?>
@@ -308,7 +308,7 @@ if($user_data->is_skill==1){
                 </div>
                 <div class="cv_skill_bar">
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?=$skill->percantage?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>

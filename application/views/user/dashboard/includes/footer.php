@@ -86,10 +86,12 @@
                     icon: "error",
                     title: "Oops...",
                     text: "Firstly Add Data",
+					showCancelButton: false,
+                   showConfirmButton: false
                 });
 				setTimeout(function(){
 					window.location.reload();
-				},2000);
+				},4000);
 				
             } else {
                 // Proceed with the status change
@@ -136,10 +138,12 @@
 							icon: "error",
 							title: "Oops...",
 							text: "Firstly Add Data",
+							showCancelButton: false,
+                           showConfirmButton: false
                                 });
 								setTimeout(function(){
 					window.location.reload();
-				},2000);
+				},4000);
 			}else{
                     $.ajax({
                         type: "POST",
@@ -156,9 +160,7 @@
 								text: " Status Change Successfully!",
 								icon: "success",
 								});
-								setTimeout(function(){
-								window.location.reload();
-								},2000);
+								
                             } else {
 								Swal.fire({
                                     icon: "error",
@@ -172,12 +174,13 @@
 					});
 				}
 		}
-		function onlyAlphabets(charCode) {
-			var charCode = event.which || event.keyCode;
-    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode === 32) {
-        return true;
-    } else {
-        return false;
-    }
-}
+		function onlyNumbers(event) {
+            var charCode = event.which || event.keyCode;
+            if ((charCode >= 48 && charCode <= 57)) { // ASCII codes for numbers 0 to 9
+                return true;
+            } else {
+                return false;
+            }
+        }
+    
 	</script>

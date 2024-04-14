@@ -34,8 +34,9 @@
                                             </div>
                                         </div>
                                     </div><hr/>
-                                    <input type="hidden" class="form-control"  name="experience">
-                                    <input type="text" class="form-control" onkeypress="onlyAlphabets(event)"  placeholder="Example : 3 years" required name="total_experience" value="<?=isset($dashboard_data->total_experience)?$dashboard_data->total_experience:""?>">
+
+                                    <input type="hidden" class="form-control"  name="experience" value="experience">
+                                    <input type="text" class="form-control"  onkeypress="return onlyNumbers(event)" placeholder="Example : 3 years" required name="total_experience" value="<?=isset($dashboard_data->total_experience)?$dashboard_data->total_experience:""?>">
                                     <button  type="submit" class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_experience)?'Update':'Save'?></button>
                                 </form>
                             </div>
@@ -55,8 +56,9 @@
                                             </div>
                                         </div>
                                     </div><hr/>
+                                    <input type="hidden" class="form-control"  name="project" value="project">
                                 
-                                    <input type="text" class="form-control"  onkeypress="return onlyAlphabets();" placeholder="Example : 3 years" required name="total_project" value="<?=isset($dashboard_data->total_project)?$dashboard_data->total_project:""?>">
+                                    <input type="text" class="form-control"   onkeypress="return onlyNumbers(event)" placeholder="Example : 3 years" required name="total_project" value="<?=isset($dashboard_data->total_project)?$dashboard_data->total_project:""?>">
                                     <button class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_project)?'Update':'Save'?></button>
                                 </form>
                             </div>
@@ -76,7 +78,8 @@
                                             </div>
                                         </div>
                                     </div><hr/>
-                                    <input type="text" class="form-control" required  name="total_client" value="<?=isset($dashboard_data->total_client)?$dashboard_data->total_client:""?>">
+                                    <input type="hidden" class="form-control"  name="client" value="client">
+                                    <input type="text" class="form-control" required  onkeypress="return onlyNumbers(event)" name="total_client" value="<?=isset($dashboard_data->total_client)?$dashboard_data->total_client:""?>">
 
                                     <button class="btn btn-outline-secondary mt-3" style="float: right;"><?=!empty($dashboard_data->total_client)?'Update':'Save'?></button>
                                 </form>
