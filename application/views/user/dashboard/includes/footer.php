@@ -137,7 +137,7 @@
 				Swal.fire({
 							icon: "error",
 							title: "Oops...",
-							text: "Firstly Add Data",
+							text: "Firstly Add Data Except 0",
 							showCancelButton: false,
                            showConfirmButton: false
                                 });

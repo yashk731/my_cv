@@ -80,27 +80,19 @@
   <!--============= About Section End================== -->
 <?php }?>
 
-<?php
-if(!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_project) || !empty($dashboard_data->total_client))
-{
-  if (!empty($dashboard_data->total_experience) && !empty($dashboard_data->total_project) && !empty($dashboard_data->total_client)) {
-    $class = 'col-sm-4 col-sm-6';
-} elseif (!empty($dashboard_data->total_experience) && !empty($dashboard_data->total_project) || 
-    !empty($dashboard_data->total_experience) && !empty($dashboard_data->total_client) || 
-    !empty($dashboard_data->total_project) && !empty($dashboard_data->total_client)) {
-    $class = 'col-sm-6 col-sm-6';
-} elseif (!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_project) || !empty($dashboard_data->total_client)) {
-    $class = 'col-sm-12 col-sm-6';
-} else {
-    // Handle case when no data is present
-}
 
-?>
+<?php
+if($dashboard_data->is_experience==1 || $dashboard_data->is_project==1 || $dashboard_data->is_client==1)
+{
+  ?>
     <!--=========== Award Section Start======= -->
     <section class="cv_award_wrapper">
         <div class="container">
           <div class="row justify-content-center">
-
+          <?php
+          if($dashboard_data->is_experience==1 )
+          {
+          ?>
             <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
@@ -112,7 +104,11 @@ if(!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_pr
                 </div>
               </div>
             </div>
-            
+            <?php }?>
+            <?php
+          if($dashboard_data->is_client==1 )
+          {
+          ?>
             <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
@@ -124,7 +120,11 @@ if(!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_pr
                 </div>
               </div>
             </div>
-
+            <?php }?>
+            <?php
+          if($dashboard_data->is_project==1 )
+          {
+          ?>
             <div class="col-md-4 col-sm-6">
               <div class="cv_award_box">
                 <div class="cv_award_icon">
@@ -136,12 +136,13 @@ if(!empty($dashboard_data->total_experience) || !empty($dashboard_data->total_pr
                 </div>
               </div>
             </div>
-
+            <?php }?>
           </div>
         </div>
       </section>
+      <?php }?>
   <!--======== Award Section End========= -->
-  <?php }?>
+ 
 <?php
 if($user_data->is_education==1){
 ?>
