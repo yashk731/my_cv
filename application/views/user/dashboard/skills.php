@@ -110,7 +110,12 @@
                                                     </select>
                                         </div>
                                     </div>
-                                    <hr/>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6 repeater-remove-btn">
+                                            <button class="btn btn-outline-danger remove-btn px-4" title="Remove Colloum"><i class="bx bx-x"></i></button>
+                                        </div>
+                                    </div><hr>
+                                </div>
                                 
                               <?php }?>
                             </div>
@@ -136,7 +141,8 @@
         <script>
               $(document).ready(function () {
              $("#add-class").click(function () {
-                var group = `<div class="items"><div class="row item-content"><div class="col-md-12 mb-3"><label for="skill" class="form-label">Enter Your Skill<span class="text-danger">*</span></label><input type="text" name="skill[]" class="form-control" placeholder="Example : Java" required></div><div class="col-md-12 mb-3"><label for="percantage" class="form-label">Mark in Percentage (%)<span class="text-danger">*</span></label><select class="form-control" required name="percantage[]"><option value="0">0%</option><option value="10">10%</option><option value="20">20%</option><option value="30">30%</option><option value="40">40%</option><option value="50">50%</option><option value="60">60%</option><option value="70">70%</option><option value="80">80%</option><option value="90">90%</option><option value="100">100%</option></select></div></div><div class="row mt-3"><div class="col-md-6 repeater-remove-btn"><button class="btn btn-outline-danger remove-btn px-4" onclick="removeInputGroup(this)" title="Remove Colloum"><i class="bx bx-x"></i></button></div></div><hr></div>`;
+                var group = `<div class="items"><div class="row item-content">
+                <div class="col-md-12 mb-3"><label for="skill" class="form-label">Enter Your Skill<span class="text-danger">*</span></label><input type="text" name="skill[]" class="form-control" placeholder="Example : Java" required></div><div class="col-md-12 mb-3"><label for="percantage" class="form-label">Mark in Percentage (%)<span class="text-danger">*</span></label><select class="form-control" required name="percantage[]"><option value="0">0%</option><option value="10">10%</option><option value="20">20%</option><option value="30">30%</option><option value="40">40%</option><option value="50">50%</option><option value="60">60%</option><option value="70">70%</option><option value="80">80%</option><option value="90">90%</option><option value="100">100%</option></select></div></div><div class="row mt-3"><div class="col-md-6 repeater-remove-btn"><button class="btn btn-outline-danger remove-btn px-4" onclick="removeInputGroup(this)" title="Remove Colloum"><i class="bx bx-x"></i></button></div></div><hr></div>`;
                 $(this).closest('form').find('.append-area').append(group);
                 //  $(this).parent().after(group);
              });

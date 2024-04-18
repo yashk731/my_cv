@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 
 	public function index($name_id)
 	{ 
-		$user_data=$this->db->select('*')->where("CONCAT(first_name,last_name,'_',id)",$name_id)->get('tbl_users')->row();
+		$user_data=$this->db->select('*')->where("CONCAT(first_name,last_name,id)",$name_id)->get('tbl_users')->row();
 		$user_id=$user_data->id;
 		$data['user_name'] = $user_data->first_name." ".$user_data->last_name; 
 		$data['about_data']=$this->UM->show_user_data($user_id);
@@ -23,6 +23,7 @@ class Home extends CI_Controller {
 		$data['dashboard_data']=$this->UM->dashboard_data($user_id);
 		$data['contact_data']=$this->UM->get_contactus_data($user_id);
 		$data['client_data']=$this->UM->get_client_data($user_id);
+		$data['project_data']=$this->UM->getTotalProjectData();
 		// echo "<pre>";
 		// print_r($data['client_data']);
 		// exit;

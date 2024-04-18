@@ -211,6 +211,47 @@ class User extends CI_Controller
         $response = $this->db->where(['id'=>$user_id])->update('tbl_users', array($key=>$status));
         echo $response ? 1 : 0;
             }
+            public function change_UserPassword()
+            {
+            $user_id= $this->session->userdata('user_id');                                                       
+            $user = $this->UM->user_profile($user_id);
+            if($this->input->post('update')) 
+            {     
+            $current = $user->user_password;
+            $password= md5($this->input->post('password'));
+            if($password == $current)
+            {
+            $newpassword= $this->input->post('password1');
+            if($this->UM->change_password($newpassword))
+            {
+                $this->session->set_flashdata('success','<script>
+                swal({
+                    title: "Password!",
+                    text: "updated successfull!",
+                    icon: "success",
+                    button: "ok",
+                    });
+                </script>');
+            }
+        }
+            else
+            {
+                $this->session->set_flashdata('error','<script>
+                swal({
+                    title: "Password   !",
+                    text: " and current password does not match update!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    });
+                </script>');
+               
+            }
+            redirect(base_url()."user/change_password");
+           }
+            redirect(base_url()."User/myprofile");
+            
+            }
         
         
     }

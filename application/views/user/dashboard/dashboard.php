@@ -3,7 +3,10 @@
     <head>
         <?php include_once('includes/main-head.php') ?>
         <style>
-            .imageBox{background-image:url('<?=base_url()?>admin-assets/images/pro-pic.jpg');}
+            .imageBox{
+                
+                background-image:url('<?=$base64?>');
+            }
             
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">

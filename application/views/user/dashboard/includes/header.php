@@ -1,7 +1,7 @@
 <?php
 $user_id=$this->session->userdata('user_id');
 $user_data= $this->db->where(['id'=>$user_id,'status'=>1])->get('tbl_users')->row();
-$name_id = $user_data->first_name . "" . $user_data->last_name . "" ."_". $user_data->id;
+$name_id = $user_data->first_name . $user_data->last_name .  $user_data->id;
 $image_data=$this->db->select('image')->where(['user_id'=>$user_id,'status'=>1])->get('tbl_user_image')->row();
 $about_data=$this->db->select('designation')->where(['user_id'=>$user_id,'status'=>1])->get('tbl_about')->row();
 ?>
@@ -11,11 +11,11 @@ $about_data=$this->db->select('designation')->where(['user_id'=>$user_id,'status
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
                 <div class="search-bar d-lg-block ">
-                    <input type="text" class="form-control" value="<?=base_url()?>View/<?=$name_id?>" id="copytoClipboard" title="Your Profile URL">
+                    <input type="text" class="form-control" value="<?=base_url()?><?=$name_id?>" id="copytoClipboard" title="Your Profile URL">
                 </div>
                 <div class="search-bar d-lg-block">
                     <a href="#" onclick="copytoClipboard()" title="Copy URL" class="btn btn-outline-secondary"><i class="bx bx-copy"></i></a>
-                    <a href="<?=base_url()?>View/<?=$name_id?>" class="btn btn-outline-secondary" title="Run URL" target="_blank"><i class="bx bx-play"></i></a>
+                    <a href="<?=base_url()?><?=$name_id?>" class="btn btn-outline-secondary" title="Run URL" target="_blank"><i class="bx bx-play"></i></a>
                 </div>
                 <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center gap-1">
@@ -46,7 +46,7 @@ $about_data=$this->db->select('designation')->where(['user_id'=>$user_id,'status
                 <?php
                     if(empty($image_data)){
                     ?>
-                   <img src="<?=base_url()?>admin-assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                   <img src="<?=base_url()?>admin-assets/images/pro-pic.jpg" class="user-img" alt="user avatar">
                     <?php }else{?>
                     <img src="<?=base_url()?>assets/upload/user_Images/<?=$image_data->image?>" class="user-img" alt="user avatar">
                     <?php }?>
