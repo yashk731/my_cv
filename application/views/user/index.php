@@ -338,57 +338,28 @@ if($user_data->is_project==1){
             </div>
             <div class="col-12">
               <div class="cv_project_content">
+                <?php
+                foreach($project_data as $p_data){
+                ?>
                 <div class="cv_project_box">
                   <div class="cv_project_img">
-                    <img src="<?=base_url()?>assets/images/proj-1.webp" class="img-fluid">
+                  <a href="<?=$p_data->project_url?>">  <img src="<?=base_url()?>assets/upload/Project_Image/<?=$p_data->faeture_image?>" class="img-fluid"></a>
                   </div>
                   <div class="cv_project_text">
                     <div class="cv_project_heading">
-                      <p>Development</p>
+                      <p><?=$p_data->working_role?></p>
                       <span>
                         <img src="<?=base_url()?>assets/images/time.svg">
                         1 Month Ago
                       </span>
                     </div>
                     <div class="cv_project_title">
-                      <p>Best Wireframe Tools For Web Designers.</p>
+                      <p><?=$p_data->description?></p>
                     </div>
                   </div>
                 </div>
-                <div class="cv_project_box">
-                  <div class="cv_project_img">
-                    <img src="<?=base_url()?>assets/images/proj-2.webp" class="img-fluid">
-                  </div>
-                  <div class="cv_project_text">
-                    <div class="cv_project_heading">
-                      <p>Development</p>
-                      <span>
-                        <img src="<?=base_url()?>assets/images/time.svg">
-                        1 Month Ago
-                      </span>
-                    </div>
-                    <div class="cv_project_title">
-                      <p>Best Wireframe Tools For Web Designers.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="cv_project_box">
-                  <div class="cv_project_img">
-                    <img src="<?=base_url()?>assets/images/proj-3.webp" class="img-fluid">
-                  </div>
-                  <div class="cv_project_text">
-                    <div class="cv_project_heading">
-                      <p>Development</p>
-                      <span>
-                        <img src="<?=base_url()?>assets/images/time.svg">
-                        1 Month Ago
-                      </span>
-                    </div>
-                    <div class="cv_project_title">
-                      <p>Best Wireframe Tools For Web Designers.</p>
-                    </div>
-                  </div>
-                </div>
+               
+              <?php }?>
                 <span id="viewMore">
                   <div class="cv_project_box">
                     <div class="cv_project_img">

@@ -22,6 +22,9 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
 
+
+
+
 	 <!--sweetalert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css" rel="stylesheet">
@@ -183,4 +186,40 @@
             }
         }
     
+	function add_preview(image, imageId, spanId, buttonId,img_height,img_width) {
+    var filePath = image.value;
+    var allowedExtensions = /(\.jpg|\.png|\.jpeg )$/i;
+
+    if (!allowedExtensions.exec(filePath)) {
+        document.getElementById(spanId).innerHTML = '\n Please upload file having extensions .jpg, .png, .jpeg only.';
+        document.getElementById(buttonId).disabled = true;
+    } else {
+        // Image preview
+        if (image.files && image.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var img = new Image();
+                img.onload = function () {
+                    var width = this.width;
+                    var height = this.height;
+                    // Check image dimensions
+                    if (width > img_height || height > img_width) {
+						document.getElementById(spanId).innerHTML = "Image dimensions should be less than or equal to " + img_height + "x" + img_width + ".";
+                        document.getElementById(buttonId).disabled = true;
+                        return false;
+                    }
+                    $('.image2')
+                        .attr('src', e.target.result)
+                        .width(110)
+                        .height(70);
+                    document.getElementById(spanId).innerHTML = "";
+                    document.getElementById(buttonId).disabled = false;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(image.files[0]);
+        }
+    }
+}
+
 	</script>

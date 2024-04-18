@@ -57,6 +57,5 @@ $route['UserDashboard'] = 'UserDashboard/dashboard';
 $route['logoutuser']='Login/LogoutUser';
 $route['save_user_img']='User/save_user_img';
 
-$route['View/(:any)'] = 'Home/index/$1';
-
-
+//$route['View/(:any)'] = 'Home/index/$1';
+$route['(:any)'] = 'Home/index/$1';
